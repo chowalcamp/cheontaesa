@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 커스텀 스타일 */
+:root {
+    --primary-color: #FFB74D;
+    --secondary-color: #795548;
+}
+
+body {
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
+/* 커스텀 애니메이션 */
+@keyframes fadeIn {
+    from {
+    opacity: 0;
+    transform: translateY(20px);
+}
+    to {
+    opacity: 1;
+    transform: translateY(0);
+}
+}
+
+/* 공통 스타일 */
+.section-title {
+    @apply text-3xl font-bold mb-4;
+    color: var(--secondary-color);
+}
+
+.section-divider {
+    @apply w-20 h-1 mx-auto;
+    background-color: var(--primary-color);
+}
+
+/* 호버 효과 */
+.hover-link {
+    @apply transition-colors duration-300;
+}
+
+.hover-link:hover {
+    color: var(--primary-color);
+}
+
+/* 반응형 컨테이너 */
+.container-custom {
+    @apply max-w-6xl mx-auto px-4;
+}

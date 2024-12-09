@@ -1,0 +1,16 @@
+.temple-visual {
+    height: calc(100vh - 80px);
+}
+
+.greeting-text {
+    line-height: 1.8;
+    word-break: keep-all;
+}
+
+.notice-card {
+    transition: transform 0.3s ease;
+}
+
+.notice-card:hover {
+    transform: translateY(-5px);
+}
