@@ -27,7 +27,8 @@ const notices = [
     { id: 420, title: "불기 2568(2024)년 승구영신기도 동참안내", createdAt: "2024-12-03", isNew: true },
     { id: 421, title: "불기 2568(2024)년 동지기도 동참안내", createdAt: "2024-12-03", isNew: true },
     { id: 422, title: "불기 2568(2024)년 제2차 수능·학업성취 백일기도", createdAt: "2024-10-27", isNew: false },
-    { id: 423, title: "불기 2568(2024)년 동안거기도 동참안내", createdAt: "2024-10-27", isNew: false }
+    { id: 423, title: "불기 2568(2024)년 동안거기도 동참안내", createdAt: "2024-10-27", isNew: false },
+    
 ];
 
 export default function NoticePage() {
