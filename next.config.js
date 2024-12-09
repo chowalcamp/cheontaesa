@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: false,
+  reactStrictMode: true, // 권장: Strict Mode 활성화
   webpack(config) {
     config.module.rules.push({
       test: /\.svg$/i,
@@ -13,12 +13,13 @@ const nextConfig = {
   images: {
     domains: ["mailtree.s3.ap-northeast-2.amazonaws.com"],
     formats: ["image/avif", "image/webp"],
+    unoptimized: false, // 필요 시 이미지 최적화 비활성화 가능
   },
   async rewrites() {
     return [
       {
         source: "/auth/api/:path*",
-        destination: "http://localhost:3000/:path*", // 수정된 부분
+        destination: process.env.API_URL || "http://localhost:3000/:path*", // 환경 변수 사용
       },
     ];
   },
@@ -30,7 +31,10 @@ const nextConfig = {
         source: "/api/:path*",
         headers: [
           { key: "Access-Control-Allow-Credentials", value: "true" },
-          { key: "Access-Control-Allow-Origin", value: "*" },
+          {
+            key: "Access-Control-Allow-Origin",
+            value: "https://yourdomain.com",
+          }, // 보안 강화
           {
             key: "Access-Control-Allow-Methods",
             value: "GET,OPTIONS,PATCH,DELETE,POST,PUT",

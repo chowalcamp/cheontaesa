@@ -22,9 +22,7 @@
     "paths": {
       "@/*": ["src/*"],
       "@Api/*": ["src/api/*"]
-    },
-    "jsxImportSource": "@emotion/react",
-    "types": ["@emotion/react/types/css-prop"]
+    }
   },
   "include": [
     "next-env.d.ts",
