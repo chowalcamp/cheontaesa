@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 export default function Home() {
     return (
-    <main className="w-full pt-20" >
+    <main className="w-full" >
         {/* 메인 비주얼 섹션 */}
         <section className="relative w-full h-[600px]">
         <Image

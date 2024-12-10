@@ -8,13 +8,12 @@ import { usePathname } from "next/navigation"; // 경로 가져오기
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const pathname = usePathname(); // 현재 경로 가져오기
 
-  const menuItems = [
+    const menuItems = [
     { name: "공지사항", path: "/about/notice" },
     { name: "주요소식", path: "/about/news" },
-    { name: "일정안내", path: "/about/todo" },
-  ];
+    ];
 
-  return (
+    return (
     <div className="w-full">
     {/* 상단베너레이아웃 */}
     <SwiperComponent />

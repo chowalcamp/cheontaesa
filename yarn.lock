@@ -1069,6 +1069,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"ant-design@npm:^1.0.0":
+  version: 1.0.0
+  resolution: "ant-design@npm:1.0.0"
+  checksum: dbb27d5bb983fd2d11e7432b3c4460f1e5e3bf0267a9467f3ac85b01ab5f30e5c338750d8ef0c9b217fe3a1b05aebb4f692c2707b3ba61f761152bf71f833a59
+  languageName: node
+  linkType: hard
+
 "antd@npm:^5.16.2":
   version: 5.22.3
   resolution: "antd@npm:5.22.3"
@@ -5617,6 +5624,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "test@workspace:."
   dependencies:
+    "@ant-design/icons": ^5.5.2
     "@tanstack/react-query": ^5.60.5
     "@tosspayments/payment-widget-sdk": ^0.10.2
     "@tosspayments/tosspayments-sdk": ^2.3.2
@@ -5626,6 +5634,7 @@ __metadata:
     "@types/react-infinite-scroller": ^1.2.5
     "@types/react-modal": ^3.16.3
     "@types/react-slick": ^0.23.13
+    ant-design: ^1.0.0
     antd: ^5.16.2
     autoprefixer: ^10.0.1
     axios: ^1.6.8
