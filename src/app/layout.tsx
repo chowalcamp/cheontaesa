@@ -5,8 +5,8 @@ import { Providers } from "../app/(auth)/providers";
 import { Noto_Sans_KR } from "next/font/google";
 import HeaderComponent from "@/component/rootLayout/header/headerComponent";
 import MobileHeader from "@/component/rootLayout/header/mobileComponent";
+import FooterComponent from "@/component/rootLayout/footer/footerComponet";
 import "@/styles/globals.css";
-
 const notoSansKr = Noto_Sans_KR({
   subsets: ["latin"],
   weight: ["400", "500", "700"],
@@ -44,6 +44,7 @@ export default function RootLayout({
         <Providers>
           <main className="flex-grow">{children}</main>
         </Providers>
+        <FooterComponent />
       </body>
     </html>
   );
