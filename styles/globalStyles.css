@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 커스텀 스타일 */
+:root {
+    --primary-color: #FFB74D;
+    --secondary-color: #795548;
+}
+
+body {
+    font-family: 'Nanum Myeongjo', sans-serif; /* 글로벌 폰트 설정 */
+}

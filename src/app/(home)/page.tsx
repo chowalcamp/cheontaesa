@@ -10,7 +10,7 @@ export default function Home() {
         {/* 메인 비주얼 섹션 */}
         <section className="relative w-full h-[600px]">
         <Image
-        src="/images/main.jpeg"
+        src="/images/humen.jpg"
         alt="천태사 전경"
         fill
         className="object-cover"
@@ -18,8 +18,8 @@ export default function Home() {
         />
         <div className="absolute inset-0 bg-black/30" />
         <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-            <h1 className="text-6xl font-bold mb-6">천태사</h1>
-            <p className="text-2xl">대한불교 미타종</p>
+            <h1 className="text-6xl font-bold mb-6"></h1>
+            <p className="text-2xl"></p>
         </div>
         </section>
 

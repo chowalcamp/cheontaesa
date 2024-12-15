@@ -26,8 +26,12 @@ const FooterComponent = () => {
 
   return (
     <footer
-      className="relative bg-cover bg-center bg-no-repeat text-white-f py-4"
-      style={{ backgroundImage: `url('/images/footer.jpg')` }}
+      className="relative bg-cover bg-center bg-no-repeat py-4"
+      style={{ 
+        backgroundImage: `url('/images/footer.jpg')`, 
+        color: '#FFFFFF',
+        fontFamily: 'NanumMyeongjo',
+      }}
     >
       <div className="max-w-6xl mx-auto px-8 py-8">
         {/* 메뉴 */}

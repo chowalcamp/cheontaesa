@@ -2,15 +2,15 @@
 
 import React, { useEffect, useState } from "react";
 import { Providers } from "../app/(auth)/providers";
-import { Noto_Sans_KR } from "next/font/google";
+import { Nanum_Myeongjo } from "next/font/google";
 import HeaderComponent from "@/component/rootLayout/header/headerComponent";
 import MobileHeader from "@/component/rootLayout/header/mobileComponent";
 import FooterComponent from "@/component/rootLayout/footer/footerComponet";
 import "@/styles/globals.css";
-const notoSansKr = Noto_Sans_KR({
+const nanumMyeongjo = Nanum_Myeongjo({
   subsets: ["latin"],
-  weight: ["400", "500", "700"],
-  variable: "--font-noto-sans-kr",
+  weight: ["400", "700", "800"],
+  variable: "--font-nanum-myeongjo",
 });
 
 export default function RootLayout({
@@ -37,7 +37,7 @@ export default function RootLayout({
   }, []);
 
   return (
-    <html lang="ko" className={`${notoSansKr.variable}`}>
+    <html lang="ko" className={`${nanumMyeongjo.variable}`}>
       <body className="mb-0 flex flex-col min-h-screen">
         {/* 조건부 렌더링 */}
         {isMobile ? <MobileHeader /> : <HeaderComponent />}

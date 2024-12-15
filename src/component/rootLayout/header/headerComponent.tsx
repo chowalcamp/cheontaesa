@@ -1,24 +1,42 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
 const HeaderComponent = () => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const [isScrolled, setIsScrolled] = useState<boolean>(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 0);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
 
   const menuItems = [
     {
       name: "천태사 소개",
-      submenu: ["주지스님 인사말", "전각 안내", "오시는 길"],
+      submenu: ["주지스님인사말", "전각 안내", "오시는 길"],
     },
     { name: "기도·불공", submenu: ["기도 안내", "불공 프로그램"] },
-    { name: "법회·행사", submenu: ["정기 법회", "행사 일정"] },
+    {
+      name: "법회·행사",
+      submenu: [
+        { title: "정기 법회", link: "/regular" },
+        { title: "행사 일정", link: "/event" },
+      ],
+    },
     {
       name: "천태사 소식",
       submenu: [
-        { title: "공지사항", link: "/about/notice" },
-        { title: "주요소식", link: "/about/news" },
+        { title: "공지사항", link: "/notice" },
+        { title: "주요소식", link: "/news" },
       ],
     },
   ];
@@ -28,61 +46,112 @@ const HeaderComponent = () => {
   };
 
   return (
-    <header className="bg-white shadow-lg relative z-50">
-      <nav className="w-full ">
+    <header
+      className={`bg-transparent ${
+        isScrolled ? "bg-white" : "bg-transparent"
+      }`}
+      style={{
+        fontFamily: "NanumMyeongjo",
+        position: "fixed",
+        top: "0",
+        left: "0",
+        right: "0",
+        zIndex: "50",
+      }}
+    >
+      <nav className="w-full">
         <div className="flex items-center justify-between max-w-6xl mx-auto py-4">
           {/* 로고 */}
           <div className="text-lg font-bold">
             <Link href="/" className="text-black text-2xl">
-              <Image src="/images/logo.png" width={200} height={100} alt="천태사 로고" />
+              <Image
+                src="/images/logo.png"
+                width={200}
+                height={100}
+                alt="천태사 로고"
+              />
             </Link>
           </div>
 
           {/* 메뉴 */}
-          <ul className="flex items-center space-x-8 mr-40">
+          <ul
+            className="flex items-center space-x-8"
+            style={{ marginRight: "4.5rem" }}
+            onMouseLeave={() => setActiveMenu(null)} // 메뉴 영역 벗어났을 때 전체 닫기
+          >
             {menuItems.map((item) => (
               <li key={item.name} className="relative group">
                 <button
-                  className={`text-base font-medium ${
-                    activeMenu === item.name ? "text-gray-800" : "text-gray-600"
-                  } hover:text-black`}
-                  onClick={() => handleMenuClick(item.name)}
+                  className="text-base font-medium py-2"
+                  style={{
+                    color: isScrolled ? "#965745" : "white",
+                    fontSize: "1.3rem",
+                    fontFamily: "NanumMyeongjo",
+                    fontWeight: "500",
+                  }}
+                  onMouseEnter={() => handleMenuClick(item.name)}
                 >
                   {item.name}
                 </button>
                 {activeMenu === item.name && item.submenu && (
-                  <ul
-                    className="absolute left-0 bg-white text-black shadow-lg mt-2"
-                    onMouseLeave={() => setActiveMenu(null)} // 서브메뉴 밖으로 나가면 닫힘
-                    style={{ zIndex: 50 }} // z-index 설정
+              <ul
+                className="absolute left-0 bg-white text-black shadow-lg"
+                style={{
+                  minWidth: "130px",
+                  zIndex: "50",
+                }}
+              >
+                  {item.submenu.map((submenuItem, subIdx) => (
+                  <li
+                    key={subIdx}
+                    className="px-4 py-4 text-sm border-b"
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.backgroundColor = "#634239"; // 호버 시 배경색 변경
+                      e.currentTarget.style.color = "#FFFFFF"; // 호버 시 폰트 색상 변경
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.backgroundColor = "transparent"; // 원래 배경색으로 복원
+                      e.currentTarget.style.color = "black"; // 원래 폰트 색상으로 복원
+                    }}
                   >
-                    {item.submenu.map((submenuItem, subIdx) => (
-                      <li
-                        key={subIdx}
-                        className="px-4 py-4 w-32 hover:bg-gray-100 text-sm border-b"
+                    {typeof submenuItem === "string" ? (
+                      <Link
+                        href={`/${submenuItem}`}
+                        className="block text-ellipsis overflow-hidden whitespace-nowrap"
                       >
-                        {typeof submenuItem === "string" ? (
-                          <Link href={`/${submenuItem}`} className="block text-ellipsis overflow-hidden whitespace-normal">
-                            {submenuItem}
-                          </Link>
-                        ) : (
-                          <Link href={submenuItem.link} className="block text-ellipsis overflow-hidden whitespace-normal">
-                            {submenuItem.title}
-                          </Link>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                )}
+                        {submenuItem}
+                      </Link>
+                    ) : (
+                      <Link
+                        href={submenuItem.link}
+                        className="block text-ellipsis overflow-hidden whitespace-nowrap"
+                      >
+                        {submenuItem.title}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            )}
               </li>
             ))}
           </ul>
 
           {/* 유틸리티 버튼 */}
           <div className="flex items-center space-x-4 mr-10">
-            <button className="hover:text-gray-500">
-              <i className="fas fa-user"></i>
+            <button
+              className="hover:text-gray-500"
+              style={{
+                color: isScrolled ? "#965745" : "white",
+              }}
+            >
               로그인
+            </button>
+            <button
+              className="hover:text-gray-500"
+              style={{ color: isScrolled ? "#965745" : "white" }}
+            >
+              회원가입
             </button>
           </div>
         </div>

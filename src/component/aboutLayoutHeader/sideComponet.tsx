@@ -10,7 +10,7 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
 export default function SwiperComponent() {
   return (
-    <section className="relative w-full" style={{ height: "400px" }}> {/* 부모 높이 명시 */}
+    <section className="relative w-full" style={{ height: "350px" }}> {/* 부모 높이 명시 */}
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         navigation
