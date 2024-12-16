@@ -65,7 +65,6 @@ export default function NewsPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
-      <h1 className="text-2xl font-bold mb-6">주요소식</h1>
       <InfiniteScroll
         dataLength={data.length} // 현재 데이터 길이
         next={fetchMoreData} // 데이터를 더 불러오는 함수
@@ -79,7 +78,7 @@ export default function NewsPage() {
         className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"
       >
         {data.map((item) => (
-          <Link key={item.id} href={`/about/news/${item.id}`} passHref>
+          <Link key={item.id} href={`/news/${item.id}`} passHref>
             <div className="border rounded-lg overflow-hidden shadow-md cursor-pointer">
               <Image
                 src={item.image}

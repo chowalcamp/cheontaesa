@@ -3,26 +3,19 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import MainWebBannerComponent from '@/component/Banner/Banner'
 
 export default function Home() {
     return (
     <main className="w-full" >
-        {/* 메인 비주얼 섹션 */}
-        <section className="relative w-full h-[600px]">
-        <Image
-        src="/images/humen.jpg"
-        alt="천태사 전경"
-        fill
-        className="object-cover"
-        priority
-        />
-        <div className="absolute inset-0 bg-black/30" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center text-white">
-            <h1 className="text-6xl font-bold mb-6"></h1>
-            <p className="text-2xl"></p>
-        </div>
-        </section>
+              <section>
 
+        {/* 메인 비주얼 섹션 */}
+        <MainWebBannerComponent />
+            <h1 className="text-6xl font-bold mb-2"></h1>
+            <p className="text-2xl"></p>
+      
+        </section>
       {/* 주지스님 인사말 */}
       <section className="py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4">

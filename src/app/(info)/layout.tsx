@@ -9,8 +9,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const pathname = usePathname(); // 현재 경로 가져오기
 
   const menuItems = [
-    { name: "주요행사", path: "/event" },
-    { name: "정기법회", path: "/regular" },
+    { name: "주지스님인사말", path: "/salutation" },
+    { name: "오시는길", path: "/directions" },
+    { name: "사찰안내", path: "/info" },
   ];
 
   return (
@@ -61,22 +62,31 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
       {/* 페이지 제목 및 설명 */}
       <header className="text-center mt-12">
-        {pathname === '/event' ? (
+        {pathname === '/salutation' ? (
           <>
             <h1 className="text-4xl font-extrabold mb-4" style={{ fontFamily: "NanumMyeongjo" }}>
-              주요행사
+              주지스님인사말
             </h1>
             <p className="text-gray-600 text-lg">
-              천태사의 다양한 행사 소식을 전해드립니다. 함께 참여하여 마음의 평안을 찾으세요.
+              천태사의 주지스님 인사말을 전해드립니다.
             </p>
           </>
-        ) : pathname === '/regular' ? (
+        ) : pathname === '/directions' ? (
           <>
             <h1 className="text-4xl font-extrabold mb-4" style={{ fontFamily: "NanumMyeongjo" }}>
-              정기법회
+              오시는길
             </h1>
             <p className="text-gray-600 text-lg">
-              천태사의 다양한 뉴스를 전해드립니다.
+              천태사의 오시는길을 전해드립니다.
+            </p>
+          </>
+        ) : pathname === '/info' ? (
+          <>
+            <h1 className="text-4xl font-extrabold mb-4" style={{ fontFamily: "NanumMyeongjo" }}>
+              사찰안내
+            </h1>
+            <p className="text-gray-600 text-lg">
+              천태사의 사찰안내입니다.
             </p>
           </>
         ) : null}

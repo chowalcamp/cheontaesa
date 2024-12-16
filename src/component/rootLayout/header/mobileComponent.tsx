@@ -22,8 +22,19 @@ const MobileHeader = () => {
   }, []);
 
   const menu1Items = [
-    { name: ["천태사 소개"], submenu: ["주지스님 인사말", "전각 안내", "오시는 길"] },
-    { name: "기도·불공", submenu: ["기도 안내", "불공 프로그램"] },
+    { name: ["천태사 소개"], 
+      submenu: [
+        { title: "주지스님 인사말", link: "/salutation" },
+        { title: "전각 안내", link: "/info" },
+        { title: "오시는 길", link: "/directions" },
+      ] 
+    },
+    { name: "기도·불공", 
+      submenu: [
+        { title: "기도 안내", link: "/pray" },
+        { title: "불공 프로그램", link: "/sacrifice" },
+      ] 
+    },
     { name: "법회·행사", 
         link: "/regular", 
         submenu: [

@@ -6,6 +6,7 @@ import { Nanum_Myeongjo } from "next/font/google";
 import HeaderComponent from "@/component/rootLayout/header/headerComponent";
 import MobileHeader from "@/component/rootLayout/header/mobileComponent";
 import FooterComponent from "@/component/rootLayout/footer/footerComponet";
+import MobileFooterComponent from "@/component/rootLayout/footer/mobileFooterComponent";
 import "@/styles/globals.css";
 const nanumMyeongjo = Nanum_Myeongjo({
   subsets: ["latin"],
@@ -44,7 +45,7 @@ export default function RootLayout({
         <Providers>
           <main className="flex-grow">{children}</main>
         </Providers>
-        <FooterComponent />
+        {isMobile ? <MobileFooterComponent /> : <FooterComponent />}
       </body>
     </html>
   );
