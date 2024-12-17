@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import SwiperComponent from "../../component/aboutLayoutHeader/sideComponet";
+import SwiperComponent from "../../component/aboutLayoutHeader/slideComponet";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 

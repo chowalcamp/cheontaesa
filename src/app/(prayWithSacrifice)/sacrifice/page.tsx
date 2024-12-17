@@ -1,7 +1,9 @@
-export default function Sacrifice() { 
-    return (
-        <div>
-            <h1>제사</h1>
-        </div>
-    )
+"use client";
+
+import React from "react";
+import sacrifice from "./data";
+import MenuPageLayoutComponent from "@/component/menuPageLayout/menePageLayoutComponent";
+
+export default function SacrificePage() {
+  return <MenuPageLayoutComponent data={sacrifice} />;
 }

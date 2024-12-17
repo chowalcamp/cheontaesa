@@ -135,7 +135,7 @@ export default function Home() {
             </div>
             <div className="group relative overflow-hidden rounded-lg shadow-lg">
               <Image
-                src="/images/temple2.jpg"
+                src="/images/main.jpeg"
                 alt="종각"
                 width={400}
                 height={300}
@@ -147,7 +147,7 @@ export default function Home() {
             </div>
             <div className="group relative overflow-hidden rounded-lg shadow-lg">
               <Image
-                src="/images/temple3.jpg"
+                src="/images/road.jpeg"
                 alt="산책로"
                 width={400}
                 height={300}

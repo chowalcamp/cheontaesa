@@ -13,6 +13,7 @@ const MobileFooterComponent = () => {
         backgroundImage: `url('/images/footer.jpg')`,
         color: "#FFFFFF",
         fontFamily: "NanumMyeongjo",
+        marginTop: '100px',
     }}
     >
 

@@ -3,8 +3,10 @@
 import React from "react";
 import Image from "next/image";
 import newsData from "../data";
+import { useRouter } from 'next/navigation';
 
 export default function NewsDetailPage() {
+  const router = useRouter();
   return (
     <div className="max-w-5xl mx-auto px-4 py-8">
       {/* 제목 섹션 */}
@@ -31,9 +33,15 @@ export default function NewsDetailPage() {
 
       {/* 뒤로가기 버튼 */}
       <div className="mt-8 flex justify-center">
-        <button
-          onClick={() => window.history.back()}
-          className="px-6 py-2 bg-gray-800 text-white rounded-md hover:bg-gray-700 transition-colors"
+      <button
+          className="px-6 py-2"
+          style={{
+            background: '#965745',
+            color: '#FFFFFF',
+            borderRadius: '10px',
+            fontFamily: 'NanumMyeongjo',
+          }}
+          onClick={() => router.back()}
         >
           목록으로 돌아가기
         </button>

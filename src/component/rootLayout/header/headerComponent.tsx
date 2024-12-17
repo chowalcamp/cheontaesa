@@ -29,8 +29,9 @@ const HeaderComponent = () => {
     },
     { name: "기도·불공", 
       submenu: [
-        { title: "기도 안내", link: "/pray" },
-        { title: "불공 프로그램", link: "/sacrifice" },
+        { title: "특별 기도", link: "/pray" },
+        { title: "재(齋)제사(祭祀)", link: "/sacrifice" },
+        { title: "공양", link: "/offering" },
       ] 
     },
     {
@@ -73,7 +74,7 @@ const HeaderComponent = () => {
           <div className="text-lg font-bold">
             <Link href="/" className="text-black text-2xl">
               <Image
-                src="/images/logo.png"
+                src={isScrolled ? "/images/logo.png" : "/images/logoWhite.png"}
                 width={200}
                 height={100}
                 alt="천태사 로고"

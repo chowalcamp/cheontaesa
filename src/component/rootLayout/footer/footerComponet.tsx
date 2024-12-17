@@ -31,6 +31,7 @@ const FooterComponent = () => {
         backgroundImage: `url('/images/footer.jpg')`, 
         color: '#FFFFFF',
         fontFamily: 'NanumMyeongjo',
+        marginTop: '100px',
       }}
     >
       <div className="max-w-6xl mx-auto px-8 py-8">

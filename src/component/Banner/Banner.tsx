@@ -53,7 +53,7 @@ export default function MainWebBannerComponent() {
           <SwiperSlide>
             <div className="relative w-full h-full">
               <Image
-                src="/images/fullshot.jpeg"
+                src="/images/pray/firePray.jpeg"
                 alt="천태사 전경 2"
                 fill
                 className="object-cover"
@@ -68,7 +68,7 @@ export default function MainWebBannerComponent() {
           <SwiperSlide>
             <div className="relative w-full h-full">
               <Image
-                src="/images/main.jpeg"
+                src="/images/regular/pray.jpeg"
                 alt="천태사 전경 3"
                 fill
                 className="object-cover"

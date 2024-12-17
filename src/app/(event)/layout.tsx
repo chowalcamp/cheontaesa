@@ -2,7 +2,7 @@
 
 import React from "react";
 import Link from "next/link";
-import SwiperComponent from "../../component/aboutLayoutHeader/sideComponet";
+import SwiperComponent from "../../component/aboutLayoutHeader/slideComponet";
 import { usePathname } from "next/navigation"; // 경로 가져오기
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
