@@ -4,7 +4,7 @@ import React, { useEffect } from "react";
 import Image from "next/image";
 import style from "./style";
 export default function LoginPage() {
-  const KAKAO_JAVASCRIPT_KEY = "98ad4539e855a8624ab5230c74e816f9"; // 카카오 JavaScript 키로 교체
+  const KAKAO_JAVASCRIPT_KEY = ""; // 카카오 JavaScript 키로 교체
   const REDIRECT_URI = "http://localhost:3000/auth/login"; // 리다이렉트 URI (카카오 설정과 일치)
 
     useEffect(() => {
