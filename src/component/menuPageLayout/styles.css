@@ -1,0 +1,21 @@
+/* 공통 스타일 */
+.menu-layout-container {
+    display: flex;
+    flex-direction: row;
+    max-height: 400px;
+    margin-bottom: 2rem;
+    gap: 1rem;
+    border-top: 1px solid #e0e0e0;
+    padding-top: 2rem;
+  }
+  
+  /* 모바일 반응형 (768px 이하) */
+  @media (max-width: 768px) {
+    .menu-layout-container {
+      flex-direction: column;
+      max-height: none;
+      margin-bottom: 1rem;
+      padding-top: 1rem;
+    }
+  }
+  

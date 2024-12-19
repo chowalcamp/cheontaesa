@@ -23,13 +23,15 @@ const MobileHeader = () => {
 
   const menu1Items = [
     { name: "천태사 소개", 
+      link: "/info",
       submenu: [
         { title: "주지스님 인사말", link: "/salutation"},
         { title: "전각 안내", link: "/info" },
         { title: "오시는 길", link: "/directions" },
       ] 
     },
-    { name: "기도·불공", 
+    { name: "기도·불공",
+      link: "/pray",
       submenu: [
         { title: "기도 안내", link: "/pray" },
         { title: "불공 프로그램", link: "/sacrifice" },
@@ -53,8 +55,8 @@ const MobileHeader = () => {
   ];
 
   const menu2Items = [
-    { name: ["천태사 소개"] },
-    { name: "기도·불공" },
+    { name: ["천태사 소개"], link: "/info" },
+    { name: "기도·불공", link: "/pray" },
     { name: "법회·행사", link: "/regular" },
     { name: "천태사 소식", link: "/news" },
   ];
@@ -85,7 +87,7 @@ const MobileHeader = () => {
         <Image
           src={isScrolled ? "/images/logo.png" : "/images/logoWhite.png"}
           width={120}
-          height={50}
+          height={0}
           alt="천태사 로고"
           style={{
             marginLeft: "105px",

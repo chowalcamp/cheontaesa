@@ -13,8 +13,20 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      fontFamily: {
+        nanumMyeongjo: ["NanumMyeongjo", "sans-serif"],
+      },
     },
   },
-  plugins: [],
+  plugins: [
+    ({ addUtilities }: { addUtilities: any }) => {
+      addUtilities({
+        ".screen-width": {
+          "@apply mx-auto lg:max-w-[1140px] md:max-w-[720px] sm:max-w-[576px]":
+          "",
+      },
+    });
+  },
+],
 };
 export default config;

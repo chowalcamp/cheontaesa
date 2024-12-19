@@ -1,8 +1,7 @@
-export type Notice = {
-  id: string;
+export interface INoticeItem {
+  id: number;
   title: string;
   author: string;
   createdAt: string;
   content: string;
-  views: number;
-};
+}
