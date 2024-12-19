@@ -1,34 +1,38 @@
 import { NextResponse } from "next/server";
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import type { INoticeItem } from "@/app/(about)/notice/types";
 
-const BASE_URL = `https://port-0-cheonteasa-backend-1ru12mlvza49dk.sel5.cloudtype.app`;
+const BASE_URL = `${process.env.NEXT_PUBLIC_BASE_URL}`;
 
-// 공지사항 상세 가져오기 함수
-export async function getNoticeDetail(noticeId: number): Promise<INoticeItem> {
+// 공지사항 상세 데이터를 가져오는 헬퍼 함수
+async function fetchNoticeDetail(noticeId: string): Promise<INoticeItem | null> {
   try {
-    const res: AxiosResponse<INoticeItem> = await axios.get(
-      `${BASE_URL}/notice/${noticeId}`
-    );
-    return res.data;
+    const response = await axios.get<INoticeItem>(`${BASE_URL}/notice/${noticeId}`);
+    return response.data;
   } catch (error) {
-    throw new Error("공지사항 정보를 가져오는 데 실패했습니다.");
+    console.error("공지사항 정보를 가져오는 데 실패했습니다:", error);
+    return null;
   }
 }
 
-// API 라우트
+// API Route 핸들러
 export async function GET(
   request: Request,
   { params }: { params: { noticeId: string } }
 ) {
-  try {
-    const noticeId = parseInt(params.noticeId);
-    const notice = await getNoticeDetail(noticeId);
-    return NextResponse.json(notice);
-  } catch (error) {
+  const { noticeId } = params;
+
+  // 공지사항 데이터 가져오기
+  const notice = await fetchNoticeDetail(noticeId);
+
+  if (!notice) {
+    // 공지사항이 없는 경우 404 반환
     return NextResponse.json(
-      { error: "Failed to fetch notice detail" },
-      { status: 500 }
+      { message: "공지사항을 찾을 수 없습니다." },
+      { status: 404 }
     );
   }
+
+  // 공지사항 데이터 반환
+  return NextResponse.json(notice);
 }

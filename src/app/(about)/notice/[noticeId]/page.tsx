@@ -1,16 +1,20 @@
 import { NoticeDetailContent } from "./NoticeDetailContent";
-import { getNoticeDetail } from "@/app/api/notice/[noticeId]/route";
 import type { INoticeItem } from "@/app/(about)/notice/types";
 
 export default async function NoticePage({
   params,
 }: {
-  params: { noticeId: string }; // 매개변수 타입 정의
+  params: { noticeId: string };
 }) {
-  const noticeId = parseInt(params.noticeId); // 문자열에서 정수로 변환
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/notice/${params.noticeId}`
+  );
 
-  // 공지사항 상세 데이터 가져오기
-  const notice: INoticeItem = await getNoticeDetail(noticeId);
+  if (!res.ok) {
+    throw new Error("공지사항 데이터를 가져오는 데 실패했습니다.");
+  }
+
+  const notice: INoticeItem = await res.json();
 
   return <NoticeDetailContent notice={notice} />;
 }
