@@ -85,7 +85,7 @@ const HeaderComponent = () => {
           {/* 메뉴 */}
           <ul
             className="flex items-center space-x-8"
-            style={{ marginRight: "4.5rem" }}
+            style={{ marginRight: "3.5rem" }}
             onMouseLeave={() => setActiveMenu(null)} // 메뉴 영역 벗어났을 때 전체 닫기
           >
             {menuItems.map((item) => (
@@ -151,18 +151,18 @@ const HeaderComponent = () => {
             <button
               className="hover:text-gray-500"
               style={{
-                color: isScrolled ? "#965745" : "white",
-              }}
+                color: "white",
+                background: '#965745',
+                padding: '10px 20px',
+                borderRadius: '10px',
+                fontFamily: 'NanumMyeongjo',
+                }}
+
+              
             >
-              <Link href="/login">
-              로그인
+              <Link href="/">
+             문의하기
             </Link>
-            </button>
-            <button
-              className="hover:text-gray-500"
-              style={{ color: isScrolled ? "#965745" : "white" }}
-            >
-              회원가입
             </button>
           </div>
         </div>
