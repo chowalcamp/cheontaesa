@@ -10,8 +10,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 
   const menuItems = [
     { name: "주지스님인사말", path: "/salutation" },
-    { name: "오시는길", path: "/directions" },
     { name: "사찰안내", path: "/info" },
+    { name: "오시는길", path: "/directions" },
   ];
 
   return (

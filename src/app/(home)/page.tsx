@@ -33,20 +33,17 @@ export default function Home() {
                 className="rounded-lg shadow-lg"
               />
             </div>
-            <div className="w-full md:w-1/2 space-y-6">
+            <div className="w-full md:w-1/2 space-y-8">
               <p className="text-lg leading-relaxed text-gray-700">
                 부처님의 가르침 안에서 평화를 찾는 천태사에 오신 것을 환영합니다.
               </p>
               <p className="text-lg leading-relaxed text-gray-700">
                 우리 천태사는 불자님들의 신행생활과 수행의 도량으로서
-                항상 부처님의 가르침을 실천하고 전하는데 최선을 다하고 있습니다.
+                항상 부처님의 <br />가르침을 실천하고 전하는데 최선을 다하고 있습니다.
               </p>
               <p className="text-lg leading-relaxed text-gray-700">
                 이곳에서 부처님의 지혜와 자비를 느끼시고
-                마음의 평화를 얻으시기를 기원합니다.
-              </p>
-              <p className="text-right text-xl font-bold mt-8">
-                천태사 주지 ○○○
+                마음의 평화를 얻으시기를<br /> 기원합니다.
               </p>
             </div>
           </div>
@@ -90,22 +87,22 @@ export default function Home() {
             <div className="bg-white p-8 rounded-lg shadow-lg">
               <div className="flex justify-between items-center mb-6">
                 <h3 className="text-xl font-bold">법회안내</h3>
-                <Link href="/schedule" className="text-gray-500 hover:text-yellow-600">
+                <Link href="/regular" className="text-gray-500 hover:text-yellow-600">
                   더보기 +
                 </Link>
               </div>
               <ul className="space-y-4">
                 <li className="flex justify-between items-center py-2 border-b">
-                  <span className="font-medium">새벽예불</span>
-                  <span className="text-gray-500">매일 04:30</span>
-                </li>
-                <li className="flex justify-between items-center py-2 border-b">
-                  <span className="font-medium">석가예불</span>
-                  <span className="text-gray-500">매일 19:00</span>
+                  <span className="font-medium">초하루법회</span>
+                  <span className="text-gray-500">매월 음력 1일</span>
                 </li>
                 <li className="flex justify-between items-center py-2 border-b">
                   <span className="font-medium">일요법회</span>
                   <span className="text-gray-500">매주 일요일 10:30</span>
+                </li>
+                <li className="flex justify-between items-center py-2 border-b">
+                  <span className="font-medium">주요행사</span>
+                  <span className="text-gray-500">변동 가능</span>
                 </li>
               </ul>
             </div>
@@ -123,7 +120,19 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="group relative overflow-hidden rounded-lg shadow-lg">
               <Image
-                src="/images/fullshot.jpeg"
+                src="/images/option.jpeg"
+                alt="칠성각"
+                width={400}
+                height={300}
+                className="w-full h-[300px] object-cover transition-transform duration-300 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                <span className="text-white text-xl font-bold">칠성각</span>
+              </div>
+            </div>
+            <div className="group relative overflow-hidden rounded-lg shadow-lg">
+              <Image
+                src="/images/main.jpeg"
                 alt="대웅전"
                 width={400}
                 height={300}
@@ -135,26 +144,14 @@ export default function Home() {
             </div>
             <div className="group relative overflow-hidden rounded-lg shadow-lg">
               <Image
-                src="/images/main.jpeg"
-                alt="종각"
-                width={400}
-                height={300}
-                className="w-full h-[300px] object-cover transition-transform duration-300 group-hover:scale-110"
-              />
-              <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span className="text-white text-xl font-bold">종각</span>
-              </div>
-            </div>
-            <div className="group relative overflow-hidden rounded-lg shadow-lg">
-              <Image
                 src="/images/road.jpeg"
-                alt="산책로"
+                alt="산신각"
                 width={400}
                 height={300}
                 className="w-full h-[300px] object-cover transition-transform duration-300 group-hover:scale-110"
               />
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                <span className="text-white text-xl font-bold">산책로</span>
+                <span className="text-white text-xl font-bold">산신각</span>
               </div>
             </div>
           </div>
@@ -181,22 +178,37 @@ export default function Home() {
 
               </div>
             </div>
-            <div className="w-full md:w-1/2 space-y-6">
-              <div>
-                <h3 className="text-xl font-bold mb-2">주소</h3>
-                <p className="text-gray-700">경기도 XX시 XX구 XX로 123</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-2">대중교통</h3>
-                <p className="text-gray-700">지하철: X호선 XX역 2번 출구</p>
-                <p className="text-gray-700">버스: 123번, 456번</p>
-              </div>
-              <div>
-                <h3 className="text-xl font-bold mb-2">문의전화</h3>
-                <p className="text-gray-700">TEL: 02-XXX-XXXX</p>
-                <p className="text-gray-700">FAX: 02-XXX-XXXX</p>
-              </div>
-            </div>
+            <div style={{ marginTop: "20px" }}>
+        <h1 style={{ fontSize: "24px", fontWeight: "bold", marginBottom: "10px" }}>
+        천태사
+      </h1>
+      <p style={{ marginBottom: "20px", fontSize: "16px", color: "black" }}>
+        경기 광주시 초월읍 도평길 241-2
+      </p>
+          <h2 style={{ fontSize: "20px", fontWeight: "bold", marginBottom: "10px" }}>
+            🚇 지하철
+          </h2>
+          <p style={{ marginBottom: "10px", lineHeight: "1.6" }}>
+            경강선 초월역 하차 후 택시 이용, 이동시간 10분 소요
+            <br />
+            경강선 경기광주역 하차 후 택시 이용, 이동시간 10분 소요
+            <br />
+          </p>
+          <h2 style={{ fontSize: "20px", fontWeight: "bold", marginBottom: "10px" }}>
+            🚌 버스
+          </h2>
+          <p style={{ lineHeight: "1.6" }}>
+            초월역 버스정류장 - 35-20번 탑승 - 소쌍.동광.E편한세상.모아미래도 하차 후 도보 10분
+            <br />
+            초월역 버스정류장 - 300번 탑승 - 소쌍.동광.E편한세상.모아미래도 하차 후 도보 10분
+            <br />
+            초월역 버스정류장 - 114번 탑승 - 소쌍.동광.E편한세상.모아미래도 하차 후 도보 10분
+            <br />
+            경기광주역 버스정류장 - 431 탑승 - 도평우림아파트 하차 후 도보 20분
+            <br />
+            경기광주역 버스정류장 - 432 탑승 - 우림아파트 하차 후 도보 20분
+          </p>
+        </div>
           </div>
         </div>
       </section>

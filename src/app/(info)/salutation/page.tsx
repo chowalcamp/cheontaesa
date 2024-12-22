@@ -1,7 +1,10 @@
-export default function Salutation() { 
-    return (
-        <div>
-            <h1>주지스님인사말</h1>
-        </div>
-    )
+
+"use client";
+
+import React from "react";
+import salutation from "./data";
+import MenuPageLayoutComponent from "@/component/menuPageLayout/menePageLayoutComponent";
+
+export default function salutatainPage() {
+  return <MenuPageLayoutComponent data={salutation} />;
 }

@@ -43,22 +43,23 @@ export default function MenuPageLayoutComponent({ data }: MenuPageLayoutProps) {
               flexDirection: isMobile ? "column" : "row", // 모바일일 때 column, PC일 때 row
               maxHeight: isMobile ? "none" : "400px",
               marginBottom: isMobile ? "1rem" : "2rem",
-              gap: "1rem",
+              gap: "3rem",
               borderTop: "1px solid #e0e0e0",
               paddingTop: isMobile ? "1rem" : "2rem",
+              padding: isMobile ? "1rem" : "2rem",
             }}
           >
             {/* 이미지 */}
             <Image
               src={item.image}
               alt={item.title}
-              className="w-full lg:w-1/2 object-cover"
-              width={400}
-              height={400}
+              width={500}
+              height={500}
+              className="object-cover"
             />
 
             {/* 내용 */}
-            <div className="p-6 w-full lg:w-1/2">
+            <div className="p-6 w-full">
               <h2 className="text-2xl font-semibold mb-2" style={{ fontFamily: "NanumMyeongjo" }}>
                 {item.title}
               </h2>

@@ -1,7 +1,10 @@
-export default function Info() { 
-    return (
-        <div>
-            <h1>천태사 사찰 안내</h1>
-        </div>
-    )
-} 
+
+"use client";
+
+import React from "react";
+import info from "./data";
+import MenuPageLayoutComponent from "@/component/menuPageLayout/menePageLayoutComponent";
+
+export default function InfoPage() {
+  return <MenuPageLayoutComponent data={info} />;
+}

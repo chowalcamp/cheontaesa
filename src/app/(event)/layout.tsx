@@ -9,8 +9,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   const pathname = usePathname(); // 현재 경로 가져오기
 
   const menuItems = [
-    { name: "주요행사", path: "/event" },
     { name: "정기법회", path: "/regular" },
+    { name: "주요행사", path: "/event" },
   ];
 
   return (
