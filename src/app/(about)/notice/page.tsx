@@ -1,5 +1,11 @@
 import NoticeListComponent from "./listComponent";
 import type { INoticeItem } from "@/app/(about)/notice/types";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "천태사 공지사항",
+  description: "천태사 공지사항 정보 및 예약 안내, 천태사 공지사항, 천태사 공지사항 정보, 천태사 공지사항 예약"
+}
 
 export default async function NoticePage() {
   try {
@@ -15,7 +21,6 @@ export default async function NoticePage() {
     const noticeList: INoticeItem[] = await res.json();
     return <NoticeListComponent notices={noticeList} />;
   } catch (error) {
-    console.error("Failed to fetch notices:", error);
     return <div>공지사항을 불러오는 데 실패했습니다.</div>;
   }
 }

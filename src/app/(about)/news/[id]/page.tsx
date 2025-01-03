@@ -1,51 +1,30 @@
-"use client";
+import NewsDetailComponent from "./detailComponent";
+import type { NewsItem } from "@/app/(about)/news/types";
+import { Metadata } from "next";
 
-import React from "react";
-import Image from "next/image";
-import newsData from "../data";
-import { useRouter } from 'next/navigation';
+// 페이지 메타데이터 설정
+export const metadata: Metadata = {
+  title: "주요소식",
+  description: "천태사 주요소식 정보 및 예약 안내, 천태사 주요소식, 천태사 주요소식 정보",
+};
 
-export default function NewsDetailPage() {
-  const router = useRouter();
+
+
+export default async function NewsDetailPage({
+  params,
+}: {
+  params: { id: string };
+}) {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_BASE_URL}/news/${params.id}`
+  );
+
+  if (!res.ok) {
+    throw new Error("주요소식 데이터를 가져오는 데 실패했습니다.");
+  }
+
+  const news: NewsItem = await res.json();
   return (
-    <div className="max-w-5xl mx-auto px-4 py-8">
-      {/* 제목 섹션 */}
-      <h1 className="text-3xl font-bold mb-4">{newsData.title}</h1>
-      <p className="text-sm text-gray-500 mb-6">{newsData.date}</p>
-
-      {/* 본문 섹션 */}
-      {newsData.sections.map((section, index) => (
-        <div key={index} className="mb-8">
-          {/* 이미지 */}
-          <div className="relative w-full h-[400px] mb-4 rounded-md overflow-hidden shadow-md">
-            <Image
-              src={section.image}
-              alt={`뉴스 이미지 ${index + 1}`}
-              layout="fill"
-              className="object-cover"
-              priority={index === 0} // 첫 번째 이미지를 우선 로드
-            />
-          </div>
-          {/* 텍스트 */}
-          <p className="prose max-w-none text-gray-700">{section.content}</p>
-        </div>
-      ))}
-
-      {/* 뒤로가기 버튼 */}
-      <div className="mt-8 flex justify-center">
-      <button
-          className="px-6 py-2"
-          style={{
-            background: '#965745',
-            color: '#FFFFFF',
-            borderRadius: '10px',
-            fontFamily: 'NanumMyeongjo',
-          }}
-          onClick={() => router.back()}
-        >
-          목록으로 돌아가기
-        </button>
-      </div>
-    </div>
+    <NewsDetailComponent news={news}/>
   );
 }

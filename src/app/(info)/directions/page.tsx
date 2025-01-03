@@ -1,4 +1,10 @@
 import Image from "next/image";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "천태사 오시는 길",
+  description: "천태사 오시는 길 정보 및 예약 안내, 천태사 오시는 길, 천태사 오시는 길 정보, 천태사 오시는 길 예약"
+};
 
 export default function Directions() {
   return (

@@ -1,9 +1,12 @@
-'use client'
-
-
 import Image from 'next/image'
+import { Metadata } from "next";
 import Link from 'next/link'
 import MainWebBannerComponent from '@/component/Banner/Banner'
+
+export const metadata: Metadata = {
+  title: "천태사 홈",
+  description: "천태사 공지사항, 법회안내, 사찰안내, 오시는 길, 천태사 홈, 천태사 홈 정보, 천태사 홈 예약"
+}
 
 export default function Home() {
     return (

@@ -10,7 +10,6 @@ async function fetchNoticeDetail(noticeId: string): Promise<INoticeItem | null> 
     const response = await axios.get<INoticeItem>(`${BASE_URL}/notice/${noticeId}`);
     return response.data;
   } catch (error) {
-    console.error("공지사항 정보를 가져오는 데 실패했습니다:", error);
     return null;
   }
 }

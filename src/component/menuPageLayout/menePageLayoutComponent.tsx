@@ -34,7 +34,7 @@ export default function MenuPageLayoutComponent({ data }: MenuPageLayoutProps) {
   return (
     <div className="max-w-6xl mx-auto px-4 py-8">
       {/* 데이터 리스트 */}
-      <section className="space-y-8">
+      <section className="space-y-6">
         {data.map((item, index) => (
           <div
             key={index}
@@ -53,13 +53,13 @@ export default function MenuPageLayoutComponent({ data }: MenuPageLayoutProps) {
             <Image
               src={item.image}
               alt={item.title}
-              width={500}
-              height={500}
-              className="object-cover"
+              width={300}
+              height={300}
+              className="object-cover w-full"
             />
 
             {/* 내용 */}
-            <div className="p-6 w-full">
+            <div className="p-4 w-full">
               <h2 className="text-2xl font-semibold mb-2" style={{ fontFamily: "NanumMyeongjo" }}>
                 {item.title}
               </h2>

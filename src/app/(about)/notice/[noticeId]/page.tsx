@@ -1,5 +1,11 @@
 import { NoticeDetailContent } from "./NoticeDetailContent";
 import type { INoticeItem } from "@/app/(about)/notice/types";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "공지사항",
+  description: "천태사 공지사항 정보 및 예약 안내, 천태사 공지사항, 천태사 공지사항 정보, 천태사 공지사항 예약"
+}
 
 export default async function NoticePage({
   params,
