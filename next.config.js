@@ -11,7 +11,7 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ["mailtree.s3.ap-northeast-2.amazonaws.com"],
+    domains: ["cheontaesa.s3.eu-north-1.amazonaws.com"],
     formats: ["image/avif", "image/webp"],
     unoptimized: false, // 필요 시 이미지 최적화 비활성화 가능
   },

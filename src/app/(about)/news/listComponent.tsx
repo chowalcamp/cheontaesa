@@ -1,43 +1,59 @@
-"use client";
+'use client'
 
-import React, { useState } from "react";
-import Image from "next/image";
-import InfiniteScroll from "react-infinite-scroll-component";
-import Link from "next/link";
-import { getNews } from "@/app/api/news/route";
+import React, { useState } from 'react'
+import Image from 'next/image'
+import InfiniteScroll from 'react-infinite-scroll-component'
+import Link from 'next/link'
+import { getNews } from '@/apis/news'
 
 export type NewsItem = {
-  id: number;
-  title: string;
-  date: string;
-  image: string;
-};
+  id: number
+  title: string
+  date: string
+  content: string
+  images: string[] | null
+  createdAt: string
+  updatedAt: string | null
+  deletedAt: string | null
+}
 
-export default function NewsListComponent({ initialData }: { initialData: NewsItem[] }) {
-  const [data, setData] = useState(initialData); // 초기 데이터
-  const [hasMore, setHasMore] = useState(true); // 더 불러올 데이터 여부
+export default function NewsListComponent({
+  initialData,
+}: {
+  initialData: NewsItem[]
+}) {
+  const [data, setData] = useState(initialData) // 초기 데이터
+  const [hasMore, setHasMore] = useState(true) // 더 불러올 데이터 여부
 
   const fetchMoreData = async () => {
     try {
-      const response = await getNews(); // 데이터 추가 요청
+      const response = await getNews() // 데이터 추가 요청
 
       // 더 이상 불러올 데이터가 없으면 hasMore를 false로 설정
       if (response.length === 0) {
-        setHasMore(false);
-        return;
+        setHasMore(false)
+        return
       }
 
       // 중복 데이터 제거 및 새로운 데이터 추가
-      const uniqueData = response.filter((item: NewsItem) => !data.some((existing: NewsItem) => existing.id === item.id));
+      const uniqueData = response.filter(
+        (item: NewsItem) =>
+          !data.some((existing: NewsItem) => existing.id === item.id),
+      )
       if (uniqueData.length === 0) {
-        setHasMore(false); // 새로운 데이터가 없으면 더 불러오지 않음
+        setHasMore(false) // 새로운 데이터가 없으면 더 불러오지 않음
       } else {
-        setData((prevData) => [...prevData, ...uniqueData]);
+        setData((prevData) => [...prevData, ...uniqueData])
       }
     } catch (error) {
-      console.error("Error fetching more news:", error);
+      console.error('Error fetching more news:', error)
     }
-  };
+  }
+
+  const extractImageUrl = (content: string) => {
+    const imgTagMatch = content?.match(/<img[^>]+src="([^">]+)"/)
+    return imgTagMatch ? imgTagMatch[1] : '' // 이미지 URL 추출
+  }
 
   return (
     <InfiniteScroll
@@ -56,7 +72,7 @@ export default function NewsListComponent({ initialData }: { initialData: NewsIt
         <Link key={item.id} href={`/news/${item.id}`} passHref>
           <div className="border overflow-hidden shadow-md cursor-pointer">
             <Image
-              src={item.image}
+              src={extractImageUrl(item.content)}
               alt={item.title}
               width={300}
               height={300}
@@ -70,5 +86,5 @@ export default function NewsListComponent({ initialData }: { initialData: NewsIt
         </Link>
       ))}
     </InfiniteScroll>
-  );
+  )
 }
