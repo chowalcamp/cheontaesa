@@ -46,7 +46,6 @@ export default function NewsListComponent({
         setData((prevData) => [...prevData, ...uniqueData])
       }
     } catch (error) {
-      console.error('Error fetching more news:', error)
     }
   }
 
