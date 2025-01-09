@@ -29,7 +29,6 @@ export default function NewsListComponent({
     try {
       const response = await getNews() // 데이터 추가 요청
 
-      // 더 이상 불러올 데이터가 없으면 hasMore를 false로 설정
       if (response.length === 0) {
         setHasMore(false)
         return
