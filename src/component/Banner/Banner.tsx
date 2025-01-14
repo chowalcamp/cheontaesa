@@ -57,6 +57,7 @@ export default function MainWebBannerComponent() {
                 alt="천태사 전경 2"
                 fill
                 className="object-cover"
+                priority
               />
               <div className="absolute inset-0 flex justify-center items-center text-white">
                 <h1 className="text-3xl font-bold">두 번째 슬라이드</h1>
@@ -72,6 +73,7 @@ export default function MainWebBannerComponent() {
                 alt="천태사 전경 3"
                 fill
                 className="object-cover"
+                priority
               />
               <div className="absolute inset-0 flex justify-center items-center text-white">
                 <h1 className="text-3xl font-bold">세 번째 슬라이드</h1>

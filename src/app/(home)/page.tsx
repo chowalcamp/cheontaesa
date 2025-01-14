@@ -34,6 +34,7 @@ export default function Home() {
                 width={500}
                 height={600}
                 className="rounded-lg shadow-lg"
+                priority
               />
             </div>
             <div className="w-full md:w-1/2 space-y-8">
@@ -128,6 +129,7 @@ export default function Home() {
                 width={400}
                 height={300}
                 className="w-full h-[300px] object-cover transition-transform duration-300 group-hover:scale-110"
+                priority
               />
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <span className="text-white text-xl font-bold">칠성각</span>
@@ -140,6 +142,7 @@ export default function Home() {
                 width={400}
                 height={300}
                 className="w-full h-[300px] object-cover transition-transform duration-300 group-hover:scale-110"
+                priority
               />
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <span className="text-white text-xl font-bold">대웅전</span>
@@ -152,6 +155,7 @@ export default function Home() {
                 width={400}
                 height={300}
                 className="w-full h-[300px] object-cover transition-transform duration-300 group-hover:scale-110"
+                priority
               />
               <div className="absolute inset-0 bg-black/50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                 <span className="text-white text-xl font-bold">산신각</span>
@@ -177,6 +181,7 @@ export default function Home() {
                 width={600}
                 height={400}
                 className="object-cover"
+                priority
               />
 
               </div>
