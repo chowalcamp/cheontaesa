@@ -19,6 +19,7 @@ export default function Directions() {
             width={800}
             height={600}
             style={{ border: "1px solid #ddd" }}
+            priority
           />
         </div>
         {/* 교통 정보 */}

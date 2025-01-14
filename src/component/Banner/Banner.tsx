@@ -43,9 +43,6 @@ export default function MainWebBannerComponent() {
                 className="object-cover"
                 priority
               />
-              <div className="absolute inset-0 flex justify-center items-center text-white">
-                <h1 className="text-3xl font-bold">첫 번째 슬라이드</h1>
-              </div>
             </div>
           </SwiperSlide>
 
@@ -60,7 +57,7 @@ export default function MainWebBannerComponent() {
                 priority
               />
               <div className="absolute inset-0 flex justify-center items-center text-white">
-                <h1 className="text-3xl font-bold">두 번째 슬라이드</h1>
+                <h1 className="text-3xl font-bold"></h1>
               </div>
             </div>
           </SwiperSlide>
@@ -76,7 +73,7 @@ export default function MainWebBannerComponent() {
                 priority
               />
               <div className="absolute inset-0 flex justify-center items-center text-white">
-                <h1 className="text-3xl font-bold">세 번째 슬라이드</h1>
+                <h1 className="text-3xl font-bold"></h1>
               </div>
             </div>
           </SwiperSlide>

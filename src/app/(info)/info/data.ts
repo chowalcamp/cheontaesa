@@ -6,6 +6,7 @@ const info = [
         description:
         "",
         image: "/images/main.jpeg",
+        priority: true,
     },
     {
         title: "칠성각",
@@ -14,6 +15,7 @@ const info = [
         description:
         "",
         image: "/images/option.jpeg",
+        priority: true,
     },
     {
         title: "산신각",
@@ -22,6 +24,7 @@ const info = [
         description:
         "",
         image: "/images/regular/buta.jpeg",
+        priority: true,
     },
     {
         title: "황후당",
@@ -30,6 +33,7 @@ const info = [
         description:
         "",
         image: "/images/option.jpeg",
+        priority: true,
     },
 ];
 

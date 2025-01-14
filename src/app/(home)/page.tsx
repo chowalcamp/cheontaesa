@@ -74,9 +74,9 @@ export default function Home() {
               </div>
               <ul className="space-y-4">
                 {[
-                  { date: '2023.11.26', title: '동안거 결제 법회 안내' },
-                  { date: '2023.11.25', title: '12월 템플스테이 프로그램 안내' },
-                  { date: '2023.11.24', title: '송년법회 참가 신청 안내' },
+                  { date: '2023.11.26', title: '인등/연등 접수안내' },
+                  { date: '2023.11.25', title: '촛불 접수 안내' },
+                  { date: '2023.11.24', title: '천도제(영가 위패)접수 안내' },
                 ].map((notice, index) => (
                   <li key={index} className="flex justify-between items-center py-2 border-b">
                     <span className="font-medium hover:text-yellow-600 cursor-pointer">
