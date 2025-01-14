@@ -1,12 +1,12 @@
-"use client";
+'use client'
 
-import React from "react";
-import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import React from 'react'
+import Image from 'next/image'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 
 export default function MainWebBannerComponent() {
   return (
@@ -37,7 +37,7 @@ export default function MainWebBannerComponent() {
           <SwiperSlide>
             <div className="relative w-full h-full">
               <Image
-                src="/images/buddhas-birthday1280.jpg"
+                src=" https://cheontaesa.s3.eu-north-1.amazonaws.com/images/buddhas-birthday1280.jpg"
                 alt="천태사 전경 1"
                 fill
                 className="object-cover"
@@ -50,7 +50,7 @@ export default function MainWebBannerComponent() {
           <SwiperSlide>
             <div className="relative w-full h-full">
               <Image
-                src="/images/pray/firePray.jpeg"
+                src="https://cheontaesa.s3.eu-north-1.amazonaws.com/images/firePray.jpeg"
                 alt="천태사 전경 2"
                 fill
                 className="object-cover"
@@ -66,7 +66,7 @@ export default function MainWebBannerComponent() {
           <SwiperSlide>
             <div className="relative w-full h-full">
               <Image
-                src="/images/regular/pray.jpeg"
+                src="https://cheontaesa.s3.eu-north-1.amazonaws.com/images/pray.jpeg"
                 alt="천태사 전경 3"
                 fill
                 className="object-cover"
@@ -80,5 +80,5 @@ export default function MainWebBannerComponent() {
         </Swiper>
       </section>
     </>
-  );
+  )
 }

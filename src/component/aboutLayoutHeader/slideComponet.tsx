@@ -1,16 +1,18 @@
-"use client";
+'use client'
 
-import React from "react";
-import Image from "next/image";
-import { Swiper, SwiperSlide } from "swiper/react";
-import "swiper/css";
-import "swiper/css/navigation";
-import "swiper/css/pagination";
-import { Navigation, Pagination, Autoplay } from "swiper/modules";
+import React from 'react'
+import Image from 'next/image'
+import { Swiper, SwiperSlide } from 'swiper/react'
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 
 export default function SwiperComponent() {
   return (
-    <section className="relative w-full" style={{ height: "350px" }}> {/* 부모 높이 명시 */}
+    <section className="relative w-full" style={{ height: '350px' }}>
+      {' '}
+      {/* 부모 높이 명시 */}
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         navigation
@@ -38,7 +40,7 @@ export default function SwiperComponent() {
         <SwiperSlide>
           <div className="relative w-full h-full">
             <Image
-              src="/images/regular/buta.jpeg"
+              src="https://cheontaesa.s3.eu-north-1.amazonaws.com/images/buta.jpeg"
               alt="부처"
               fill
               className="object-cover"
@@ -52,7 +54,7 @@ export default function SwiperComponent() {
         <SwiperSlide>
           <div className="relative w-full h-full">
             <Image
-              src="/images/buddhas-birthday1280.jpg"
+              src="https://cheontaesa.s3.eu-north-1.amazonaws.com/images/buddhas-birthday1280.jpg"
               alt="천태사 전경 2"
               fill
               className="object-cover"
@@ -66,7 +68,7 @@ export default function SwiperComponent() {
         <SwiperSlide>
           <div className="relative w-full h-full">
             <Image
-              src="/images/regular/pray.jpeg"
+              src="https://cheontaesa.s3.eu-north-1.amazonaws.com/images/regular/pray.jpeg"
               alt="기도"
               fill
               className="object-cover"
@@ -79,5 +81,5 @@ export default function SwiperComponent() {
         </SwiperSlide>
       </Swiper>
     </section>
-  );
+  )
 }

@@ -1,51 +1,51 @@
-"use client";
+'use client'
 
-import React from "react";
-import Link from "next/link";
-import Image from "next/image";
+import React from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 
 const FooterComponent = () => {
   const footerMenu = [
     {
-      title: "천태사 소개",
+      title: '천태사 소개',
       submenu: [
-        { title: "주지스님 인사말", link: "/salutation" },
-        { title: "전각 안내", link: "/info" },
-        { title: "오시는 길", link: "/directions" },
+        { title: '주지스님 인사말', link: '/salutation' },
+        { title: '전각 안내', link: '/info' },
+        { title: '오시는 길', link: '/directions' },
       ],
     },
     {
-      title: "기도·불공",
+      title: '기도·불공',
       submenu: [
-        { title: "특별기도", link: "/pray" },
-        { title: "재(齋) 및 제사(祭祀)", link: "/sacrifice" },
-        { title: "공양", link: "/offering" },
+        { title: '특별기도', link: '/pray' },
+        { title: '재(齋) 및 제사(祭祀)', link: '/sacrifice' },
+        { title: '공양', link: '/offering' },
       ],
     },
     {
-      title: "법회·행사",
+      title: '법회·행사',
       submenu: [
-        { title: "정기법회", link: "/regular" },
-        { title: "주요행사", link: "/event" },
+        { title: '정기법회', link: '/regular' },
+        { title: '주요행사', link: '/event' },
       ],
     },
     {
-      title: "천태사 소식",
+      title: '천태사 소식',
       submenu: [
-        { title: "공지사항", link: "/notice" },
-        { title: "주요소식", link: "/news" },
+        { title: '공지사항', link: '/notice' },
+        { title: '주요소식', link: '/news' },
       ],
     },
-  ];
+  ]
 
   return (
     <footer
       className="relative bg-cover bg-center bg-no-repeat py-4"
       style={{
-        backgroundImage: `url('/images/footer.jpg')`,
-        color: "#FFFFFF",
-        fontFamily: "NanumMyeongjo",
-        marginTop: "100px",
+        backgroundImage: `url(https://cheontaesa.s3.eu-north-1.amazonaws.com/images/footer.jpg)`,
+        color: '#FFFFFF',
+        fontFamily: 'NanumMyeongjo',
+        marginTop: '100px',
       }}
     >
       <div className="max-w-6xl mx-auto px-8 py-8">
@@ -53,11 +53,16 @@ const FooterComponent = () => {
         <div className="flex flex-wrap justify-between mb-8 py-8">
           {footerMenu.map((menu, idx) => (
             <div key={idx} className="flex flex-col space-y-2">
-              <h4 className="text-lg text-white-f text-base mb-6 py-4">{menu.title}</h4>
+              <h4 className="text-lg text-white-f text-base mb-6 py-4">
+                {menu.title}
+              </h4>
               <ul className="text-gray-200 text-white-f space-y-1 text-sm">
                 {menu.submenu.map((submenuItem, subIdx) => (
                   <li key={subIdx}>
-                    <Link href={submenuItem.link} className="hover:text-gray-300">
+                    <Link
+                      href={submenuItem.link}
+                      className="hover:text-gray-300"
+                    >
                       {submenuItem.title}
                     </Link>
                   </li>
@@ -91,12 +96,15 @@ const FooterComponent = () => {
           </div>
         </div>
         <div className="flex flex-col md:flex-row items-center space-x-4">
-          <p>문의전화: (접수 문의) 02-000-0000 | 대표자 010-0000-0000 | kakao | instagram</p>
+          <p>
+            문의전화: (접수 문의) 02-000-0000 | 대표자 010-0000-0000 | kakao |
+            instagram
+          </p>
           <p>Copyright © CHEONTAESA. All Rights Reserved.</p>
         </div>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default FooterComponent;
+export default FooterComponent
