@@ -76,7 +76,7 @@ const FooterComponent = () => {
               {/* 로고 및 주소 */}
               <div className="flex flex-col md:flex-row items-center space-x-4">
                 <Image
-                  src="/images/logo.png"
+                  src="https://cheontaesa.s3.eu-north-1.amazonaws.com/images/logo.png"
                   alt="천태사 로고"
                   width={150}
                   height={150}

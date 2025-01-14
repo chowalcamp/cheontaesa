@@ -138,7 +138,7 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="group relative overflow-hidden rounded-lg shadow-lg">
               <Image
-                src="/images/option.jpeg"
+                src="https://cheontaesa.s3.eu-north-1.amazonaws.com/images/option.jpeg"
                 alt="칠성각"
                 width={400}
                 height={300}
@@ -151,7 +151,7 @@ export default function Home() {
             </div>
             <div className="group relative overflow-hidden rounded-lg shadow-lg">
               <Image
-                src="/images/main.jpeg"
+                src="https://cheontaesa.s3.eu-north-1.amazonaws.com/images/main.jpeg"
                 alt="대웅전"
                 width={400}
                 height={300}
@@ -164,7 +164,7 @@ export default function Home() {
             </div>
             <div className="group relative overflow-hidden rounded-lg shadow-lg">
               <Image
-                src="/images/road.jpeg"
+                src="https://cheontaesa.s3.eu-north-1.amazonaws.com/images/road.jpeg"
                 alt="산신각"
                 width={400}
                 height={300}

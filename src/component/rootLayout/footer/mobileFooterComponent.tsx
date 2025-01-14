@@ -26,7 +26,7 @@ const MobileFooterComponent = () => {
         <div className="flex flex-row items-end mb-6 ">
           <div className="flex flex-col items-end mb-2">
             <Image
-              src="/images/logo.png"
+              src="https://cheontaesa.s3.eu-north-1.amazonaws.com/images/logo.png"
               alt="천대사 로고"
               width={150}
               height={150}
