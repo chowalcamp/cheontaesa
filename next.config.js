@@ -11,9 +11,14 @@ const nextConfig = {
     return config;
   },
   images: {
-    domains: ["cheontaesa.s3.eu-north-1.amazonaws.com"],
-    formats: ["image/avif", "image/webp"],
-    unoptimized: false, // 필요 시 이미지 최적화 비활성화 가능
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "cheontaesa.s3.eu-north-1.amazonaws.com",
+        port: "",
+        pathname: "/images/**",
+      },
+    ],
   },
   async rewrites() {
     return [
@@ -33,7 +38,7 @@ const nextConfig = {
           { key: "Access-Control-Allow-Credentials", value: "true" },
           {
             key: "Access-Control-Allow-Origin",
-            value: "https://yourdomain.com",
+            value: "https://www.cheontaesa.com",
           }, // 보안 강화
           {
             key: "Access-Control-Allow-Methods",
