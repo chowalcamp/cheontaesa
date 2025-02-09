@@ -42,7 +42,7 @@ const FooterComponent = () => {
     <footer
       className="relative bg-cover bg-center bg-no-repeat py-4"
       style={{
-        backgroundImage: `url(https://cheontaesa.s3.eu-north-1.amazonaws.com/images/footer.jpg)`,
+        backgroundColor: '#634239',
         color: '#FFFFFF',
         fontFamily: 'NanumMyeongjo',
         marginTop: '100px',

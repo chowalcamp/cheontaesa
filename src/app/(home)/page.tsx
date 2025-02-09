@@ -56,16 +56,10 @@ export default function Home() {
         </div>
       </section>
       {/* 알림마당 */}
-      <section
-        className="py-20 bg-cover bg-center bg-no-repeat"
-        style={{
-          backgroundImage:
-            'url(https://cheontaesa.s3.eu-north-1.amazonaws.com/images/background2.png)',
-        }}
-      >
+      <section className="py-20 bg-gray-200">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl text-[#fff] font-bold mb-4">알림마당</h2>
+            <h2 className="text-3xl text-[#000] font-bold mb-4">알림마당</h2>
             <div className="w-20 h-1 bg-yellow-600 mx-auto"></div>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

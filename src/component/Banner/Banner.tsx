@@ -46,21 +46,6 @@ export default function MainWebBannerComponent() {
             </div>
           </SwiperSlide>
 
-          {/* 슬라이드 2 */}
-          <SwiperSlide>
-            <div className="relative w-full h-full">
-              <Image
-                src="https://cheontaesa.s3.eu-north-1.amazonaws.com/images/firePray.jpeg"
-                alt="천태사 전경 2"
-                fill
-                className="object-cover"
-                priority
-              />
-              <div className="absolute inset-0 flex justify-center items-center text-white">
-                <h1 className="text-3xl font-bold"></h1>
-              </div>
-            </div>
-          </SwiperSlide>
 
           {/* 슬라이드 3 */}
           <SwiperSlide>

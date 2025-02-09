@@ -8,15 +8,7 @@ const pray = [
         image: "/images/sacrifice/baekjuongze.jpeg",
         priority: true,
     },
-    {
-        title: "백일기도 - 천일기도",
-        date: "",
-        place: "천태사",
-        description:
-        "특별한 목적이나 서원을 세우고 이를 발원하기 위해 100일 또는 1000일간 수행정진 하는 기도입니다.",
-        image: "/images/pray/firePray.jpeg",
-        priority: true,
-    },
+
 ];
 
 export default pray;

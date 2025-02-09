@@ -26,8 +26,9 @@ export default function Directions() {
             alt="map"
             width={800}
             height={600}
-            style={{ border: '1px solid #ddd' }}
+            style={{ border: '1px solid #ddd', width: '100%', height: 'auto' }}
             priority
+            
           />
         </div>
         {/* 교통 정보 */}

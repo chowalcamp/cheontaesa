@@ -56,6 +56,7 @@ export default function MenuPageLayoutComponent({ data }: MenuPageLayoutProps) {
               width={300}
               height={300}
               className="object-cover w-full"
+              style={{ width: "auto", height: "auto" }}
             />
 
             {/* 내용 */}

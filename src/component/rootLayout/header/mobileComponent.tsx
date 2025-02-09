@@ -93,12 +93,14 @@ const MobileHeader = () => {
                 ? 'https://cheontaesa.s3.eu-north-1.amazonaws.com/images/logo.png'
                 : 'https://cheontaesa.s3.eu-north-1.amazonaws.com/images/logoWhite.png'
             }
-            width={120}
-            height={0}
+            width={100}
+            height={100}
             alt="천태사 로고"
             style={{
-              marginLeft: '105px',
-              paddingTop: '10px',
+              width: "100",
+              height: "auto",
+              marginLeft: "0px",
+              paddingTop: "10px",
             }}
           />
         </Link>

@@ -23,14 +23,9 @@ const info = [
     image: 'https://cheontaesa.s3.eu-north-1.amazonaws.com/images/buta.jpeg',
     priority: true,
   },
-  {
-    title: '황후당',
-    date: '',
-    place: '황후당',
-    description: '',
-    image: 'https://cheontaesa.s3.eu-north-1.amazonaws.com/images/option.jpeg',
-    priority: true,
-  },
+
 ]
 
 export default info
+
+

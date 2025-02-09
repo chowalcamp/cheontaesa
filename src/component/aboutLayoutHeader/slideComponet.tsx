@@ -21,21 +21,6 @@ export default function SwiperComponent() {
         loop
         className="h-full"
       >
-        {/* 슬라이드 1 */}
-        <SwiperSlide>
-          <div className="relative w-full h-full">
-            <Image
-              src="/images/pray/firePray.jpeg"
-              alt="촛불"
-              fill
-              className="object-cover"
-              priority
-            />
-            <div className="absolute inset-0 flex justify-center items-center text-white">
-              <h1 className="text-3xl font-bold"></h1>
-            </div>
-          </div>
-        </SwiperSlide>
         {/* 슬라이드 2 */}
         <SwiperSlide>
           <div className="relative w-full h-full">
@@ -45,6 +30,7 @@ export default function SwiperComponent() {
               fill
               className="object-cover"
               priority
+
             />
             <div className="absolute inset-0 flex justify-center items-center text-white">
               <h1 className="text-3xl font-bold"></h1>
@@ -59,20 +45,7 @@ export default function SwiperComponent() {
               fill
               className="object-cover"
               priority
-            />
-            <div className="absolute inset-0 flex justify-center items-center text-white">
-              <h1 className="text-3xl font-bold"></h1>
-            </div>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide>
-          <div className="relative w-full h-full">
-            <Image
-              src="https://cheontaesa.s3.eu-north-1.amazonaws.com/images/regular/pray.jpeg"
-              alt="기도"
-              fill
-              className="object-cover"
-              priority
+
             />
             <div className="absolute inset-0 flex justify-center items-center text-white">
               <h1 className="text-3xl font-bold"></h1>

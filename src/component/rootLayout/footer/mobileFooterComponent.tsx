@@ -8,8 +8,7 @@ const MobileFooterComponent = () => {
     <footer
       className="relative bg-cover bg-center py-8 mr-0"
       style={{
-        backgroundImage: `url('https://cheontaesa.s3.eu-north-1.amazonaws.com/images/footer.jpg
-')`,
+        backgroundColor: '#634239',
         color: '#FFFFFF',
         fontFamily: 'NanumMyeongjo',
         marginTop: '100px',

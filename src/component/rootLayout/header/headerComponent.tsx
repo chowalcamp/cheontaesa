@@ -80,6 +80,7 @@ const HeaderComponent = () => {
                 }
                 width={200}
                 height={100}
+                style={{ width: "150", height: "auto" }}
                 alt="천태사 로고"
               />
             </Link>

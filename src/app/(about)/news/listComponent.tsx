@@ -75,6 +75,8 @@ export default function NewsListComponent({
               width={300}
               height={300}
               className="object-cover w-full h-48"
+              style={{ width: "auto", height: "auto" }} // 비율 유지
+        
             />
             <div className="p-4">
               <h2 className="text-lg font-semibold">{item.title}</h2>
