@@ -3,10 +3,12 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
+import '@/styles/headerComponent.css'
 
 const HeaderComponent = () => {
   const [activeMenu, setActiveMenu] = useState<string | null>(null)
   const [isScrolled, setIsScrolled] = useState<boolean>(false)
+  
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 0)
@@ -56,22 +58,12 @@ const HeaderComponent = () => {
   }
 
   return (
-    <header
-      className={`bg-transparent ${isScrolled ? 'bg-white' : 'bg-transparent'}`}
-      style={{
-        fontFamily: 'NanumMyeongjo',
-        position: 'fixed',
-        top: '0',
-        left: '0',
-        right: '0',
-        zIndex: '50',
-      }}
-    >
-      <nav className="w-full">
-        <div className="flex items-center justify-between max-w-6xl mx-auto py-4">
+    <header className={`header ${isScrolled ? 'header-scrolled' : ''}`}>
+      <nav className="header-nav">
+        <div className="header-container">
           {/* 로고 */}
-          <div className="text-lg font-bold">
-            <Link href="/" className="text-black text-2xl">
+          <div className="header-logo">
+            <Link href="/" className="logo-link">
               <Image
                 src={
                   isScrolled
@@ -88,56 +80,35 @@ const HeaderComponent = () => {
 
           {/* 메뉴 */}
           <ul
-            className="flex items-center space-x-8"
-            style={{ marginRight: '3.5rem' }}
-            onMouseLeave={() => setActiveMenu(null)} // 메뉴 영역 벗어났을 때 전체 닫기
+            className="header-menu"
+            onMouseLeave={() => setActiveMenu(null)}
           >
             {menuItems.map((item) => (
-              <li key={item.name} className="relative group">
+              <li key={item.name} className="menu-item">
                 <button
-                  className="text-base font-medium py-2"
-                  style={{
-                    color: isScrolled ? '#965745' : 'white',
-                    fontSize: '1.3rem',
-                    fontFamily: 'NanumMyeongjo',
-                    fontWeight: '500',
-                  }}
+                  className={`menu-button ${isScrolled ? 'menu-button-scrolled' : ''}`}
                   onMouseEnter={() => handleMenuClick(item.name)}
                 >
                   {item.name}
                 </button>
                 {activeMenu === item.name && item.submenu && (
-                  <ul
-                    className="absolute left-0 bg-white text-black shadow-lg"
-                    style={{
-                      minWidth: '130px',
-                      zIndex: '50',
-                    }}
-                  >
+                  <ul className="submenu">
                     {item.submenu.map((submenuItem, subIdx) => (
                       <li
                         key={subIdx}
-                        className="px-4 py-4 text-sm border-b"
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.backgroundColor = '#634239' // 호버 시 배경색 변경
-                          e.currentTarget.style.color = '#FFFFFF' // 호버 시 폰트 색상 변경
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.backgroundColor = 'transparent' // 원래 배경색으로 복원
-                          e.currentTarget.style.color = 'black' // 원래 폰트 색상으로 복원
-                        }}
+                        className="submenu-item"
                       >
                         {typeof submenuItem === 'string' ? (
                           <Link
                             href={`/${submenuItem}`}
-                            className="block text-ellipsis overflow-hidden whitespace-nowrap"
+                            className="submenu-link"
                           >
                             {submenuItem}
                           </Link>
                         ) : (
                           <Link
                             href={submenuItem.link}
-                            className="block text-ellipsis overflow-hidden whitespace-nowrap"
+                            className="submenu-link"
                           >
                             {submenuItem.title}
                           </Link>
@@ -151,17 +122,8 @@ const HeaderComponent = () => {
           </ul>
 
           {/* 유틸리티 버튼 */}
-          <div className="flex items-center space-x-4 mr-10">
-            <button
-              className="hover:text-gray-500"
-              style={{
-                color: 'white',
-                background: '#965745',
-                padding: '10px 20px',
-                borderRadius: '10px',
-                fontFamily: 'NanumMyeongjo',
-              }}
-            >
+          <div className="header-utility">
+            <button className="contact-button">
               <Link href="/">문의하기</Link>
             </button>
           </div>

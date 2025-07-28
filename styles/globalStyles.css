@@ -1,15 +1,99 @@
 @import url('https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* 기본 리셋 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-/* 커스텀 스타일 */
+/* 커스텀 변수 */
 :root {
     --primary-color: #FFB74D;
     --secondary-color: #795548;
 }
 
 body {
-    font-family: 'Nanum Myeongjo', sans-serif; /* 글로벌 폰트 설정 */
+    font-family: 'Nanum Myeongjo', sans-serif;
+    color: #333;
+    background-color: #fff;
+}
+
+/* 레이아웃 스타일 */
+.root-body {
+    margin-bottom: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex-grow: 1;
+}
+
+/* 커스텀 애니메이션 */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 공통 스타일 */
+.section-title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: var(--secondary-color);
+}
+
+.section-divider {
+    width: 5rem;
+    height: 0.25rem;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--primary-color);
+}
+
+/* 호버 효과 */
+.hover-link {
+    transition: color 0.3s ease;
+}
+
+.hover-link:hover {
+    color: var(--primary-color);
+}
+
+/* 반응형 컨테이너 */
+.container-custom {
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* 유틸리티 클래스들 */
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.min-h-screen {
+    min-height: 100vh;
+}
+
+.mb-0 {
+    margin-bottom: 0;
 }

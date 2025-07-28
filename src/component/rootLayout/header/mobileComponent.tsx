@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { DownOutlined, UpOutlined } from '@ant-design/icons'
+import '@/styles/mobileComponent.css'
 
 const MobileHeader = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -70,23 +71,11 @@ const MobileHeader = () => {
   }
 
   return (
-    <div
-      className={`w-full bg-transparent ${
-        isScrolled ? 'bg-white' : 'bg-transparent'
-      }`}
-      style={{
-        fontFamily: 'NanumMyeongjo',
-        position: 'fixed',
-        top: '0',
-        left: '0',
-        right: '0',
-        zIndex: '50',
-      }}
-    >
+    <div className={`mobile-header ${isScrolled ? 'mobile-header-scrolled' : ''}`}>
       {/* 상단 헤더 */}
-      <div className="flex items-center justify-between px-6 py-2 border-b shadow-lg">
+      <div className="mobile-header-top">
         {/* 로고 */}
-        <Link href="/">
+        <Link href="/" className="mobile-logo">
           <Image
             src={
               isScrolled
@@ -107,8 +96,7 @@ const MobileHeader = () => {
         {/* 햄버거 메뉴 버튼 */}
         <button
           onClick={() => setIsMenuOpen((prev) => !prev)}
-          className="text-3xl text-gray-800"
-          style={{ marginBottom: '4px', color: isScrolled ? 'black' : 'white' }}
+          className={`mobile-menu-button ${isScrolled ? 'mobile-menu-button-scrolled' : ''}`}
         >
           {isMenuOpen ? '✕' : '☰'}
         </button>
@@ -116,58 +104,34 @@ const MobileHeader = () => {
 
       {/* 슬라이드 메뉴 */}
       {isMenuOpen && (
-        <div
-          style={{
-            position: 'fixed',
-            top: '0',
-            right: '0',
-            height: '100%',
-            paddingTop: '10px',
-            backgroundColor: '#ffffff',
-            width: '20rem', // w-80 == 20rem
-            boxShadow:
-              '0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05)', // shadow-lg
-            transform: isMenuOpen ? 'translateX(0)' : 'translateX(100%)', // translate-x-full / translate-x-0
-            transition: 'transform 0.3s ease-in-out', // transition-transform duration-300 ease-in-out
-            pointerEvents: 'auto', // 메뉴 영역만 클릭 가능
-            zIndex: '51',
-          }}
-        >
+        <div className="mobile-slide-menu">
           {/* 메뉴 헤더 */}
-          <div className="flex justify-between items-center px-6 py-4 border-b shadow-md">
-            <h2 className="text-lg font-semibold">메뉴</h2>
+          <div className="mobile-menu-header">
+            <h2 className="mobile-menu-title">메뉴</h2>
             <button
               onClick={() => setIsMenuOpen(false)}
-              className="text-2xl text-gray-800"
+              className="mobile-menu-close"
             >
               ✕
             </button>
           </div>
 
           {/* 메뉴 리스트 */}
-          <nav
-            className="px-6 py-4 overflow-auto h-full"
-            style={{
-              zIndex: '50',
-              marginTop: '10px',
-              backgroundColor: '#ffffff',
-            }}
-          >
-            <ul className="space-y-4">
+          <nav className="mobile-menu-nav">
+            <ul className="mobile-menu-list">
               {menu1Items.map((item, index) => (
-                <li key={index}>
-                  <div className="flex justify-between items-center">
+                <li key={index} className="mobile-menu-item">
+                  <div className="mobile-menu-item-header">
                     {/* 상위 메뉴 클릭 */}
                     <span
                       onClick={() => {
                         if (item.link) {
                           window.location.href = item.link
                         } else {
-                          toggleSubmenu(item.name as string) // 서브메뉴 토글
+                          toggleSubmenu(item.name as string)
                         }
                       }}
-                      className="text-lg font-medium text-gray-800 cursor-pointer hover:text-black"
-                      style={{ pointerEvents: 'auto' }}
+                      className="mobile-menu-link"
                     >
                       {Array.isArray(item.name) ? item.name[0] : item.name}
                     </span>
@@ -175,9 +139,9 @@ const MobileHeader = () => {
                     {/* 토글 버튼 */}
                     {item.submenu && (
                       <button
-                        className="text-lg text-gray-500"
+                        className="mobile-menu-toggle"
                         onClick={(e) => {
-                          e.stopPropagation() // 클릭 이벤트 버블링 방지
+                          e.stopPropagation()
                           toggleSubmenu(item.name as string)
                         }}
                       >
@@ -190,13 +154,13 @@ const MobileHeader = () => {
                     )}
                   </div>
                   {item.submenu && activeSubmenu === item.name && (
-                    <ul className="mt-2 space-y-2 pl-4">
+                    <ul className="mobile-submenu">
                       {item.submenu.map((submenuItem, subIdx) => (
-                        <li key={subIdx}>
+                        <li key={subIdx} className="mobile-submenu-item">
                           {typeof submenuItem === 'string' ? (
                             <Link
                               href={`/${submenuItem}`}
-                              className="block text-gray-600 hover:text-black"
+                              className="mobile-submenu-link"
                               onClick={() => setIsMenuOpen(false)}
                             >
                               {submenuItem}
@@ -204,7 +168,7 @@ const MobileHeader = () => {
                           ) : (
                             <Link
                               href={submenuItem.link}
-                              className="block text-gray-600 hover:text-black"
+                              className="mobile-submenu-link"
                               onClick={() => setIsMenuOpen(false)}
                             >
                               {submenuItem.title}
@@ -222,24 +186,16 @@ const MobileHeader = () => {
       )}
 
       {/* 메뉴 바 */}
-      <nav
-        className={`w-full bg-transparent ${
-          isScrolled ? 'bg-white' : 'bg-transparent'
-        } px-4 py-2 shadow-lg border-b`}
-      >
-        <ul className="flex flex-row justify-between items-center">
+      <nav className={`mobile-nav-bar ${isScrolled ? 'mobile-nav-bar-scrolled' : ''}`}>
+        <ul className="mobile-nav-list">
           {menu2Items.map((item, index) => (
-            <li key={index}>
-              <div className="flex flex-row justify-between items-center">
+            <li key={index} className="mobile-nav-item">
+              <div className="mobile-nav-item-content">
                 <span
                   onClick={() => {
                     if (item.link) window.location.href = item.link
                   }}
-                  className="text-sm text-gray-800 cursor-pointer hover:text-black"
-                  style={{
-                    marginBottom: '4px',
-                    color: isScrolled ? 'black' : 'white',
-                  }}
+                  className={`mobile-nav-link ${isScrolled ? 'mobile-nav-link-scrolled' : ''}`}
                 >
                   {item.name}
                 </span>

@@ -1,0 +1,162 @@
+.footer {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 1rem 0;
+    background-color: #634239;
+    color: #FFFFFF;
+    font-family: 'Nanum Myeongjo', sans-serif;
+    margin-top: 100px;
+  }
+  
+  .footer-container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .footer-menu {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+    padding: 2rem 0;
+  }
+  
+  .footer-menu-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .footer-menu-title {
+    font-size: 1.125rem;
+    color: #FFFFFF;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1rem 0;
+  }
+  
+  .footer-submenu {
+    color: #e5e7eb;
+    color: #FFFFFF;
+    gap: 0.25rem;
+    font-size: 0.875rem;
+  }
+  
+  .footer-submenu-item {
+    list-style: none;
+    margin-bottom: 0.25rem;
+  }
+  
+  .footer-submenu-link {
+    color: #e5e7eb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .footer-submenu-link:hover {
+    color: #d1d5db;
+  }
+  
+  .footer-info-section {
+    border-color: #e5e7eb;
+    padding: 0.5rem 0;
+  }
+  
+  .footer-info-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .footer-logo-address {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .footer-logo {
+    width: 150px;
+    height: auto;
+  }
+  
+  .footer-address {
+    font-size: 0.875rem;
+    color: #e5e7eb;
+    padding: 0 1rem;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+  
+  .footer-temple-name {
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-address-text {
+    margin: 0;
+  }
+  
+  .footer-contact-info {
+    width: 100%;
+  }
+  
+  .footer-contact-details {
+    font-size: 0.875rem;
+    color: #e5e7eb;
+    text-align: left;
+    padding: 1rem 0;
+    margin-bottom: 1rem;
+  }
+  
+  .footer-contact-details p {
+    margin-bottom: 0.5rem;
+  }
+  
+  .footer-bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .footer-contact {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #e5e7eb;
+  }
+  
+  .footer-copyright {
+    margin: 0;
+    font-size: 0.875rem;
+    color: #e5e7eb;
+  }
+  
+  /* 반응형 디자인 */
+  @media (min-width: 768px) {
+    .footer-info-content {
+      flex-direction: row;
+    }
+    
+    .footer-logo-address {
+      flex-direction: row;
+    }
+    
+    .footer-address {
+      text-align: left;
+    }
+    
+    .footer-contact-details {
+      text-align: center;
+    }
+    
+    .footer-bottom {
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }

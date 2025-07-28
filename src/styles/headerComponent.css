@@ -1,0 +1,126 @@
+.header {
+    background-color: transparent;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 50;
+    font-family: 'Nanum Myeongjo', sans-serif;
+    transition: background-color 0.3s ease;
+  }
+  
+  .header-scrolled {
+    background-color: white;
+  }
+  
+  .header-nav {
+    width: 100%;
+  }
+  
+  .header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem 0;
+  }
+  
+  .header-logo {
+    font-size: 1.125rem;
+    font-weight: bold;
+  }
+  
+  .logo-link {
+    color: black;
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+  
+  .header-menu {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-right: 3.5rem;
+  }
+  
+  .menu-item {
+    position: relative;
+    list-style: none;
+  }
+  
+  .menu-button {
+    font-size: 1.3rem;
+    font-weight: 500;
+    padding: 0.5rem 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: white;
+    font-family: 'Nanum Myeongjo', sans-serif;
+    transition: color 0.3s ease;
+    list-style: none;
+  }
+  
+  .menu-button-scrolled {
+    color: #965745;
+  }
+  
+  .submenu {
+    position: absolute;
+    left: 0;
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    min-width: 130px;
+    z-index: 50;
+  }
+  
+  .submenu-item {
+    padding: 1rem;
+    font-size: 0.875rem;
+    border-bottom: 1px solid #e5e7eb;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    list-style: none;
+  }
+  
+  .submenu-item:hover {
+    background-color: #634239;
+    color: #FFFFFF;
+  }
+  
+  .submenu-link {
+    display: block;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .header-utility {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-right: 2.5rem;
+  }
+  
+  .contact-button {
+    color: white;
+    background: #965745;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-family: 'Nanum Myeongjo', sans-serif;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .contact-button:hover {
+    background-color: #7a4537;
+  }
+  
+  .contact-button a {
+    color: white;
+    text-decoration: none;
+  }

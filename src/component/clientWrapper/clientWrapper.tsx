@@ -2,7 +2,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import HeaderComponent from "@/component/rootLayout/header/headerComponent";
+import HeaderComponent from "@/component/rootLayout/header/HeaderComponent";
 import MobileHeader from "@/component/rootLayout/header/mobileComponent";
 import FooterComponent from "@/component/rootLayout/footer/footerComponet";
 import MobileFooterComponent from "@/component/rootLayout/footer/mobileFooterComponent";

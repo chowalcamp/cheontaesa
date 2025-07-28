@@ -1,7 +1,6 @@
-
 import { Nanum_Myeongjo } from "next/font/google";
 import ClientWrapper from "@/component/clientWrapper/clientWrapper";
-import "@/styles/globals.css";
+import "../../styles/globalStyles.css";
 
 const nanumMyeongjo = Nanum_Myeongjo({
   subsets: ["latin"],
@@ -25,9 +24,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ko" className={`${nanumMyeongjo.variable}`}>
-      <body className="mb-0 flex flex-col min-h-screen">
+      <body className="root-body">
         <ClientWrapper>
-          <main className="flex-grow">{children}</main>
+          <main className="main-content">{children}</main>
         </ClientWrapper>
       </body>
     </html>
