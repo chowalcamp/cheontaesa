@@ -32,22 +32,13 @@ export default function MenuPageLayoutComponent({ data }: MenuPageLayoutProps) {
   }, []);
 
   return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
+    <div className="menu-page-container">
       {/* 데이터 리스트 */}
-      <section className="space-y-6">
+      <section className="menu-page-section">
         {data.map((item, index) => (
           <div
             key={index}
-            style={{
-              display: "flex",
-              flexDirection: isMobile ? "column" : "row", // 모바일일 때 column, PC일 때 row
-              maxHeight: isMobile ? "none" : "400px",
-              marginBottom: isMobile ? "1rem" : "2rem",
-              gap: "3rem",
-              borderTop: "1px solid #e0e0e0",
-              paddingTop: isMobile ? "1rem" : "2rem",
-              padding: isMobile ? "1rem" : "2rem",
-            }}
+            className={`menu-layout-item ${isMobile ? 'menu-layout-item-mobile' : ''}`}
           >
             {/* 이미지 */}
             <Image
@@ -55,25 +46,17 @@ export default function MenuPageLayoutComponent({ data }: MenuPageLayoutProps) {
               alt={item.title}
               width={300}
               height={300}
-              className="object-cover w-full"
-              style={{ width: "auto", height: "auto" }}
+              className="menu-item-image"
             />
 
             {/* 내용 */}
-            <div className="p-4 w-full">
-              <h2 className="text-2xl font-semibold mb-2" style={{ fontFamily: "NanumMyeongjo" }}>
+            <div className="menu-item-content">
+              <h2 className="menu-item-title">
                 {item.title}
               </h2>
-              {item.date && <p className="text-gray-500 mb-2">{item.date}</p>}
-              {item.place && <p className="text-gray-500 mb-2">{item.place}</p>}
-              <p
-                className="text-gray-700"
-                style={{
-                  fontFamily: "NanumMyeongjo",
-                  textAlign: "justify",
-                  wordBreak: "break-word",
-                }}
-              >
+              {item.date && <p className="menu-item-date">{item.date}</p>}
+              {item.place && <p className="menu-item-place">{item.place}</p>}
+              <p className="menu-item-description">
                 {item.description}
               </p>
             </div>

@@ -29,6 +29,7 @@ body {
 
 .main-content {
     flex-grow: 1;
+    padding-top: 120px;
 }
 
 /* 커스텀 애니메이션 */

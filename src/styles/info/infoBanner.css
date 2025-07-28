@@ -1,0 +1,41 @@
+/* 슬라이드 섹션 */
+.slide-section {
+    position: relative;
+    width: 100%;
+    height: 350px;
+  }
+  
+  .slide-swiper {
+    height: 100%;
+  }
+  
+  .slide-item {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .slide-image {
+    object-fit: cover;
+  }
+  
+  .slide-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+  }
+  
+  .slide-title {
+    font-size: 1.875rem;
+    font-weight: bold;
+  }
+  
+  /* 반응형 디자인 */
+  @media (max-width: 768px) {
+    .slide-section {
+      height: 300px;
+    }
+  }

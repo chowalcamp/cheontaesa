@@ -1,0 +1,86 @@
+/* 페이지네이션 컨테이너 */
+.pagination-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    gap: 1rem;
+  }
+  
+  /* 페이지네이션 네비게이션 버튼 */
+  .pagination-nav-button {
+    padding: 0.5rem 1rem;
+    color: #6b7280;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    background: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    font-size: 0.875rem;
+  }
+  
+  .pagination-nav-button:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .pagination-nav-button-disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  .pagination-nav-button-disabled:hover {
+    background-color: transparent;
+  }
+  
+  /* 페이지 번호들 컨테이너 */
+  .pagination-pages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+  }
+  
+  /* 페이지 번호 버튼 */
+  .pagination-page-button {
+    padding: 0.5rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    color: #6b7280;
+    background: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .pagination-page-button:hover {
+    background-color: #f3f4f6;
+  }
+  
+  .pagination-page-button-active {
+    background-color: #374151;
+    color: white;
+    border-color: #374151;
+  }
+  
+  .pagination-page-button-active:hover {
+    background-color: #374151;
+  }
+  
+  /* 생략 부호 */
+  .pagination-ellipsis {
+    padding: 0 0.5rem;
+    color: #6b7280;
+  }
+  
+  /* 반응형 디자인 */
+  @media (min-width: 640px) {
+    .pagination-container {
+      flex-direction: row;
+      gap: 0;
+    }
+    
+    .pagination-nav-button {
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+    }
+  }

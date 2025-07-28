@@ -1,7 +1,7 @@
 import React from "react";
 import NewsListComponent from "./listComponent";
 import { Metadata } from "next";
-
+import "@/styles/about/newsList.css";
 
 // 페이지 메타데이터 설정
 export const metadata: Metadata = {
@@ -14,11 +14,11 @@ export default async function NewsPage() {
     const res = await fetch(`${process.env.NEXT_PUBLIC_BASE_URL}/news`);
     const data = await res.json();
     return (
-    <div className="max-w-6xl mx-auto px-4 py-8">
-      <NewsListComponent initialData={data} />
-    </div>
-  );
-} catch (error) {
-  return <div>주요소식을 불러오는 데 실패했습니다.</div>;
-}
+      <div className="news-page-container">
+        <NewsListComponent initialData={data} />
+      </div>
+    );
+  } catch (error) {
+    return <div className="news-error">주요소식을 불러오는 데 실패했습니다.</div>;
+  }
 }

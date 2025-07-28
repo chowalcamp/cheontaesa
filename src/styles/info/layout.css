@@ -1,0 +1,120 @@
+/* 메인 레이아웃 */
+.info-layout {
+    width: 100%;
+  }
+  
+  /* 네비게이션 */
+  .info-nav {
+    width: 100%;
+    background-color: white;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* PC 메뉴 */
+  .info-nav-pc {
+    display: none;
+    justify-content: center;
+    gap: 2rem;
+    padding: 1rem 0;
+    color: #374151;
+  }
+  
+  .info-nav-item {
+    position: relative;
+  }
+  
+  .info-nav-link {
+    font-size: 1.125rem;
+    font-weight: 500;
+    color: #6b7280;
+    text-decoration: none;
+    transition: color 0.3s ease;
+    position: relative;
+  }
+  
+  .info-nav-link:hover {
+    color: black;
+  }
+  
+  .info-nav-link-active {
+    color: black;
+  }
+  
+  .info-nav-link-active::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: black;
+  }
+  
+  /* 모바일 메뉴 */
+  .info-nav-mobile {
+    display: block;
+  }
+  
+  .info-nav-mobile-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    border-top: 1px solid #e5e7eb;
+  }
+  
+  .info-nav-mobile-item {
+    text-align: center;
+  }
+  
+  .info-nav-mobile-link {
+    display: block;
+    padding: 0.75rem 0;
+    font-weight: 500;
+    font-size: 1.125rem;
+    text-decoration: none;
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .info-nav-mobile-link {
+    background-color: white;
+    color: #374151;
+  }
+  
+  .info-nav-mobile-link-active {
+    background-color: #634239;
+    color: white;
+  }
+  
+  /* 헤더 */
+  .info-header {
+    text-align: center;
+    margin-top: 3rem;
+  }
+  
+  .info-title {
+    font-size: 2.25rem;
+    font-weight: 800;
+    margin-bottom: 1rem;
+    font-family: 'Nanum Myeongjo', sans-serif;
+  }
+  
+  .info-description {
+    color: #6b7280;
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+  
+  /* 메인 콘텐츠 */
+  .info-main {
+    margin-top: 1rem;
+  }
+  
+  /* 반응형 디자인 */
+  @media (min-width: 768px) {
+    .info-nav-pc {
+      display: flex;
+    }
+    
+    .info-nav-mobile {
+      display: none;
+    }
+  }

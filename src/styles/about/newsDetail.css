@@ -1,0 +1,89 @@
+/* 뉴스 상세 컨테이너 */
+.news-detail-container {
+    max-width: 64rem;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    position: relative;
+    min-height: 500px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* 헤더 섹션 */
+  .news-detail-header {
+    border-bottom: 2px solid #e5e7eb;
+    padding-bottom: 1.5rem;
+  }
+  
+  .news-detail-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+  
+  .news-detail-meta {
+    display: flex;
+    justify-content: space-between;
+    color: #6b7280;
+    font-size: 0.875rem;
+  }
+  
+  .news-detail-info {
+    display: flex;
+    gap: 1rem;
+  }
+  
+  /* 콘텐츠 섹션 */
+  .news-detail-content {
+    padding: 2rem 0;
+    white-space: pre-line;
+    line-height: 1.6;
+  }
+  
+  /* 푸터 섹션 */
+  .news-detail-footer {
+    position: absolute;
+    bottom: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .news-back-button {
+    padding: 0.5rem 1.5rem;
+    background-color: #965745;
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    font-family: 'Nanum Myeongjo', sans-serif;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .news-back-button:hover {
+    background-color: #7a4537;
+  }
+  
+  /* 반응형 디자인 */
+  @media (max-width: 768px) {
+    .news-detail-container {
+      padding: 1rem;
+      min-height: 400px;
+    }
+    
+    .news-detail-title {
+      font-size: 1.25rem;
+    }
+    
+    .news-detail-meta {
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    
+    .news-detail-info {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+    
+    .news-detail-footer {
+      bottom: -50px;
+    }
+  }

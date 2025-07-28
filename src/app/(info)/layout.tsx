@@ -3,10 +3,11 @@
 import React from "react";
 import Link from "next/link";
 import SwiperComponent from "../../component/aboutLayoutHeader/slideComponet";
-import { usePathname } from "next/navigation"; // 경로 가져오기
+import { usePathname } from "next/navigation";
+import "@/styles/info/layout.css";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname(); // 현재 경로 가져오기
+  const pathname = usePathname();
 
   const menuItems = [
     { name: "주지스님인사말", path: "/salutation" },
@@ -15,22 +16,20 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   ];
 
   return (
-    <div className="w-full">
+    <div className="info-layout">
       {/* 상단베너레이아웃 */}
       <SwiperComponent />
 
       {/* 메뉴 */}
-      <nav className="w-full bg-white shadow-md">
+      <nav className="info-nav">
         {/* PC 메뉴 */}
-        <ul className="hidden md:flex justify-center space-x-8 py-4 text-gray-700">
+        <ul className="info-nav-pc">
           {menuItems.map((item) => (
-            <li key={item.path} className="relative">
+            <li key={item.path} className="info-nav-item">
               <Link
                 href={item.path}
-                className={`text-lg font-medium ${
-                  pathname === item.path
-                    ? "text-black after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-black"
-                    : "text-gray-500 hover:text-black"
+                className={`info-nav-link ${
+                  pathname === item.path ? 'info-nav-link-active' : ''
                 }`}
               >
                 {item.name}
@@ -40,16 +39,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         </ul>
 
         {/* 모바일 메뉴 */}
-        <div className="block md:hidden">
-          <ul className="grid grid-cols-2 border-t">
+        <div className="info-nav-mobile">
+          <ul className="info-nav-mobile-list">
             {menuItems.map((item) => (
-              <li key={item.path} className="text-center">
+              <li key={item.path} className="info-nav-mobile-item">
                 <Link
                   href={item.path}
-                  className={`block py-3 font-medium text-lg ${
-                    pathname === item.path
-                      ? "bg-[#634239] text-white"
-                      : "bg-white text-gray-700"
+                  className={`info-nav-mobile-link ${
+                    pathname === item.path ? 'info-nav-mobile-link-active' : ''
                   }`}
                 >
                   {item.name}
@@ -61,31 +58,31 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </nav>
 
       {/* 페이지 제목 및 설명 */}
-      <header className="text-center mt-12">
+      <header className="info-header">
         {pathname === '/salutation' ? (
           <>
-            <h1 className="text-4xl font-extrabold mb-4" style={{ fontFamily: "NanumMyeongjo" }}>
+            <h1 className="info-title">
               주지스님인사말
             </h1>
-            <p className="text-gray-600 text-lg">
+            <p className="info-description">
               천태사의 주지스님 인사말을 전해드립니다.
             </p>
           </>
         ) : pathname === '/directions' ? (
           <>
-            <h1 className="text-4xl font-extrabold mb-4" style={{ fontFamily: "NanumMyeongjo" }}>
+            <h1 className="info-title">
               오시는길
             </h1>
-            <p className="text-gray-600 text-lg">
+            <p className="info-description">
               천태사의 오시는길을 전해드립니다.
             </p>
           </>
         ) : pathname === '/info' ? (
           <>
-            <h1 className="text-4xl font-extrabold mb-4" style={{ fontFamily: "NanumMyeongjo" }}>
+            <h1 className="info-title">
               사찰안내
             </h1>
-            <p className="text-gray-600 text-lg">
+            <p className="info-description">
               천태사의 사찰안내입니다.
             </p>
           </>
@@ -93,7 +90,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </header>
 
       {/* 메인 콘텐츠 */}
-      <main className="mt-4">{children}</main>
+      <main className="info-main">{children}</main>
     </div>
   );
 }

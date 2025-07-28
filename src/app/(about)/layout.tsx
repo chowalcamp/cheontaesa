@@ -3,90 +3,84 @@
 import React from "react";
 import Link from "next/link";
 import SwiperComponent from "../../component/aboutLayoutHeader/slideComponet";
-import { usePathname } from "next/navigation"; // 경로 가져오기
+import { usePathname } from "next/navigation";
+import "@/styles/about/layout.css";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
-  const pathname = usePathname(); // 현재 경로 가져오기
+  const pathname = usePathname();
 
-    const menuItems = [
+  const menuItems = [
     { name: "공지사항", path: "/notice" },
     { name: "주요소식", path: "/news" },
-    ];
+  ];
 
-    return (
-        <div className="w-full">
+  return (
+    <div className="about-layout">
+      {/* 상단베너레이아웃 */}
+      <SwiperComponent />
 
-        {/* 상단베너레이아웃 */}
-        <SwiperComponent />
-
-        {/* 메뉴 */}
-        <nav className="w-full bg-white shadow-md">
-
+      {/* 메뉴 */}
+      <nav className="about-nav">
         {/* PC 메뉴 */}
-        <ul className="hidden md:flex justify-center space-x-8 py-4 text-gray-700">
-            {menuItems.map((item) => (
-                <li key={item.path} className="relative">
-                <Link
+        <ul className="about-nav-pc">
+          {menuItems.map((item) => (
+            <li key={item.path} className="about-nav-item">
+              <Link
                 href={item.path}
-                className={`text-lg font-medium ${
-                    pathname === item.path
-                        ? "text-black after:absolute after:bottom-[-4px] after:left-0 after:w-full after:h-[2px] after:bg-black"
-                        : "text-gray-500 hover:text-black"
-                    }`}
-                >
+                className={`about-nav-link ${
+                  pathname === item.path ? 'about-nav-link-active' : ''
+                }`}
+              >
                 {item.name}
-                </Link>
-                </li>
-            ))}
+              </Link>
+            </li>
+          ))}
         </ul>
-    
+
         {/* 모바일 메뉴 */}
-        <div className="block md:hidden">
-            <ul className="grid grid-cols-2 border-t">
-                {menuItems.map((item) => (
-                <li key={item.path} className="text-center">
-                    <Link
-                    href={item.path}
-                    className={`block py-3 font-medium text-lg ${
-                        pathname === item.path
-                        ? "bg-[#634239] text-white"
-                        : "bg-white text-gray-700"
-                    }`}
-                    >
-                    {item.name}
-                    </Link>
-                </li>
-                ))}
-            </ul>
-            </div>
-        </nav>
+        <div className="about-nav-mobile">
+          <ul className="about-nav-mobile-list">
+            {menuItems.map((item) => (
+              <li key={item.path} className="about-nav-mobile-item">
+                <Link
+                  href={item.path}
+                  className={`about-nav-mobile-link ${
+                    pathname === item.path ? 'about-nav-mobile-link-active' : ''
+                  }`}
+                >
+                  {item.name}
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </nav>
 
-        {/* 페이지 제목 및 설명 */}
-        <header className="text-center mt-12">
-            {pathname === '/notice' ? (
-                <>
-                <h1 className="text-4xl font-extrabold mb-4" style={{ fontFamily: "NanumMyeongjo" }}>
-                공지사항
-                </h1>
-                <p className="text-gray-600 text-lg">
-                천태사의 다양한 공지사항을 전해드립니다.
-                </p>
-                </>
-                ) : pathname === '/news' ? (
-                <>
-                <h1 className="text-4xl font-extrabold mb-4" style={{ fontFamily: "NanumMyeongjo" }}>
-                주요소식
-                </h1>
-                <p className="text-gray-600 text-lg">
-                천태사의 다양한 소식을 전해드립니다.
-                </p>
-                </>
-                ) : null}
-        </header>
+      {/* 페이지 제목 및 설명 */}
+      <header className="about-header">
+        {pathname === '/notice' ? (
+          <>
+            <h1 className="about-title">
+              공지사항
+            </h1>
+            <p className="about-description">
+              천태사의 다양한 공지사항을 전해드립니다.
+            </p>
+          </>
+        ) : pathname === '/news' ? (
+          <>
+            <h1 className="about-title">
+              주요소식
+            </h1>
+            <p className="about-description">
+              천태사의 다양한 소식을 전해드립니다.
+            </p>
+          </>
+        ) : null}
+      </header>
 
-         {/* 메인 콘텐츠 */}
-        <main className="mt-4">{children}</main>
-
+      {/* 메인 콘텐츠 */}
+      <main className="about-main">{children}</main>
     </div>
-);
+  );
 }

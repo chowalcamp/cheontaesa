@@ -1,0 +1,286 @@
+/* 메인 컨테이너 */
+.home-main {
+    width: 100%;
+  }
+  
+  .home-title {
+    font-size: 3.75rem;
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .home-subtitle {
+    font-size: 1.5rem;
+  }
+  
+  /* 공통 섹션 스타일 */
+  .section-greeting,
+  .section-notice,
+  .section-temple,
+  .section-directions {
+    padding: 5rem 0;
+  }
+  
+  .section-greeting,
+  .section-temple {
+    background-color: white;
+  }
+  
+  .section-notice,
+  .section-directions {
+    background-color: #e5e7eb;
+  }
+  
+  .container {
+    max-width: 72rem;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+  
+  .section-title {
+    font-size: 1.875rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    color: #000;
+  }
+  
+  .notice-title {
+    color: #000;
+  }
+  
+  .section-divider {
+    width: 5rem;
+    height: 0.25rem;
+    background-color: #d97706;
+    margin: 0 auto;
+  }
+  
+  /* 주지스님 인사말 섹션 */
+  .greeting-content {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    align-items: center;
+  }
+  
+  .greeting-image-container {
+    width: 100%;
+  }
+  
+  .greeting-image {
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .greeting-text {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .greeting-paragraph {
+    font-size: 1.125rem;
+    line-height: 1.75;
+    color: #374151;
+  }
+  
+  /* 알림마당 섹션 */
+  .notice-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .notice-card {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+  
+  .notice-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+  
+  .notice-card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  .notice-more-link {
+    color: #6b7280;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .notice-more-link:hover {
+    color: #d97706;
+  }
+  
+  .notice-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  
+  .notice-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+  
+  .notice-title-text {
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  
+  .notice-title-text:hover {
+    color: #d97706;
+  }
+  
+  .notice-date {
+    color: #6b7280;
+    font-size: 0.875rem;
+  }
+  
+  /* 사찰안내 섹션 */
+  .temple-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+  
+  .temple-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+  }
+  
+  .temple-image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .temple-card:hover .temple-image {
+    transform: scale(1.1);
+  }
+  
+  .temple-overlay {
+    position: absolute;
+    inset: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .temple-card:hover .temple-overlay {
+    opacity: 1;
+  }
+  
+  .temple-name {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: bold;
+  }
+  
+  /* 오시는 길 섹션 */
+  .directions-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  
+  .directions-map {
+    width: 100%;
+    height: 100%;
+    background-color: #e5e7eb;
+    border-radius: 0.5rem;
+  }
+  
+  .map-image {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .directions-info {
+    margin-top: 1.25rem;
+  }
+  
+  .directions-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    margin-bottom: 0.625rem;
+  }
+  
+  .directions-address {
+    margin-bottom: 1.25rem;
+    font-size: 1rem;
+    color: black;
+  }
+  
+  .directions-subtitle {
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 0.625rem;
+  }
+  
+  .directions-text {
+    margin-bottom: 0.625rem;
+    line-height: 1.6;
+  }
+  
+  /* 반응형 디자인 */
+  @media (min-width: 768px) {
+    .greeting-content {
+      flex-direction: row;
+    }
+    
+    .greeting-image-container {
+      width: 50%;
+    }
+    
+    .greeting-text {
+      width: 50%;
+    }
+    
+    .notice-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+    
+    .temple-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .directions-content {
+      flex-direction: row;
+    }
+    
+    .directions-map {
+      width: 50%;
+    }
+    
+    .directions-info {
+      width: 50%;
+      margin-top: 0;
+    }
+  }

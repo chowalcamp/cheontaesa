@@ -21,6 +21,15 @@ export default async function NoticePage() {
     const noticeList: INoticeItem[] = await res.json();
     return <NoticeListComponent notices={noticeList} />;
   } catch (error) {
-    return <div>공지사항을 불러오는 데 실패했습니다.</div>;
+    return (
+      <div style={{
+        textAlign: 'center',
+        padding: '2rem',
+        color: '#ef4444',
+        fontSize: '1.125rem'
+      }}>
+        공지사항을 불러오는 데 실패했습니다.
+      </div>
+    );
   }
 }

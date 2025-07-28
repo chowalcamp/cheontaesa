@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import "@/styles/pagination.css";
 
 type PaginationProps = {
   currentPage: number;
@@ -25,30 +26,30 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
   const displayedPages = getDisplayedPages();
 
   return (
-    <div className="flex sm:flex-row justify-between items-center mt-4 space-y-4 sm:space-y-0">
+    <div className="pagination-container">
       {/* Previous 버튼 */}
       <button
         onClick={() => onPageChange(currentPage - 1)}
         disabled={currentPage === 1}
-        className={`px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base text-gray-600 border rounded hover:bg-gray-100 ${
-          currentPage === 1 ? "opacity-50 cursor-not-allowed" : ""
+        className={`pagination-nav-button ${
+          currentPage === 1 ? "pagination-nav-button-disabled" : ""
         }`}
       >
         Previous
       </button>
 
       {/* 페이지 번호 버튼들 */}
-      <div className="flex flex-wrap justify-center gap-2">
+      <div className="pagination-pages">
         {/* 첫 번째 페이지로 이동 */}
         {displayedPages[0] > 1 && (
           <>
             <button
               onClick={() => onPageChange(1)}
-              className="px-4 py-2 border rounded text-gray-600 hover:bg-gray-100"
+              className="pagination-page-button"
             >
               1
             </button>
-            <span className="px-2 text-gray-500">...</span>
+            <span className="pagination-ellipsis">...</span>
           </>
         )}
 
@@ -57,10 +58,8 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
           <button
             key={page}
             onClick={() => onPageChange(page)}
-            className={`px-4 py-2 rounded ${
-              currentPage === page
-                ? "bg-gray-800 text-white"
-                : "border text-gray-600 hover:bg-gray-100"
+            className={`pagination-page-button ${
+              currentPage === page ? "pagination-page-button-active" : ""
             }`}
           >
             {page}
@@ -70,10 +69,10 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
         {/* 마지막 페이지로 이동 */}
         {displayedPages[displayedPages.length - 1] < totalPages && (
           <>
-            <span className="px-2 text-gray-500">...</span>
+            <span className="pagination-ellipsis">...</span>
             <button
               onClick={() => onPageChange(totalPages)}
-              className="px-4 py-2 border rounded text-gray-600 hover:bg-gray-100"
+              className="pagination-page-button"
             >
               {totalPages}
             </button>
@@ -85,8 +84,8 @@ export default function Pagination({ currentPage, totalPages, onPageChange }: Pa
       <button
         onClick={() => onPageChange(currentPage + 1)}
         disabled={currentPage === totalPages}
-        className={`px-4 py-2 sm:px-6 sm:py-3 text-sm sm:text-base text-gray-600 border rounded hover:bg-gray-100 ${
-          currentPage === totalPages ? "opacity-50 cursor-not-allowed" : ""
+        className={`pagination-nav-button ${
+          currentPage === totalPages ? "pagination-nav-button-disabled" : ""
         }`}
       >
         Next
