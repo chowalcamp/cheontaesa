@@ -66,9 +66,10 @@ const HeaderComponent = () => {
             <Link href="/" className="logo-link">
               <Image
                 src={
-                  isScrolled
-                    ? 'https://cheontaesa.s3.eu-north-1.amazonaws.com/images/logo.png'
-                    : 'https://cheontaesa.s3.eu-north-1.amazonaws.com/images/logoWhite.png'
+                  // isScrolled
+                    // ?
+                     'https://cheontaesa.s3.eu-north-1.amazonaws.com/images/logo.png'
+                    // : 'https://cheontaesa.s3.eu-north-1.amazonaws.com/images/logoWhite.png'
                 }
                 width={200}
                 height={100}

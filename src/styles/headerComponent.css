@@ -1,12 +1,12 @@
 .header {
-    background-color: transparent;
+    background-color: white;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 50;
     font-family: 'Nanum Myeongjo', sans-serif;
-    transition: background-color 0.3s ease;
+    /* transition: background-color 0.3s ease; */
   }
   
   .header-scrolled {
@@ -56,9 +56,9 @@
     background: none;
     border: none;
     cursor: pointer;
-    color: white;
+    color: #965745;
     font-family: 'Nanum Myeongjo', sans-serif;
-    transition: color 0.3s ease;
+    /* transition: color 0.3s ease; */
     list-style: none;
   }
   
