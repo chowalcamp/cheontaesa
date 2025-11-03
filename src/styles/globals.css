@@ -2,49 +2,188 @@
 @tailwind components;
 @tailwind utilities;
 
-/* 커스텀 스타일 */
+/* ===========================================
+   천태사 웹사이트 - 미니멀 & 모던 스타일
+   색상: 회색, 검정, 갈색 (Amber)
+   =========================================== */
+
 :root {
-    --primary-color: #FFB74D;
-    --secondary-color: #795548;
+    --primary-color: #b45309; /* Amber-700 */
+    --secondary-color: #78350f; /* Amber-900 */
+    --gray-dark: #1f2937; /* Gray-800 */
+    --gray-medium: #6b7280; /* Gray-500 */
+    --gray-light: #f3f4f6; /* Gray-100 */
+    --white: #ffffff;
+    --black: #000000;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Noto Sans KR', sans-serif;
+    font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    line-height: 1.6;
+    color: #1f2937;
+    overflow-x: hidden;
 }
 
-/* 커스텀 애니메이션 */
-@keyframes fadeIn {
-    from {
-    opacity: 0;
-    transform: translateY(20px);
+/* 한글 Serif 폰트 */
+.font-serif {
+    font-family: 'Noto Serif KR', serif;
 }
+
+/* 네비게이션 스타일 */
+.nav-link {
+    position: relative;
+    padding-bottom: 4px;
+    font-weight: 500;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #b45309;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+/* 애니메이션 */
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
     to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fade-in {
+    animation: fade-in 1s ease-out;
+}
+
+/* 스크롤 효과 */
+.scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.scroll-reveal.active {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* 버튼 스타일 */
+.btn-primary {
+    background: linear-gradient(135deg, #b45309 0%, #78350f 100%);
+    transition: all 0.3s ease;
 }
 
-/* 공통 스타일 */
-.section-title {
-    @apply text-3xl font-bold mb-4;
-    color: var(--secondary-color);
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(180, 83, 9, 0.3);
 }
 
-.section-divider {
-    @apply w-20 h-1 mx-auto;
-    background-color: var(--primary-color);
+/* 카드 호버 효과 */
+.card-hover {
+    transition: all 0.3s ease;
 }
 
-/* 호버 효과 */
-.hover-link {
-    @apply transition-colors duration-300;
+.card-hover:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.15);
 }
 
-.hover-link:hover {
-    color: var(--primary-color);
+/* 텍스트 라인 클램프 */
+.line-clamp-3 {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
 }
 
-/* 반응형 컨테이너 */
-.container-custom {
-    @apply max-w-6xl mx-auto px-4;
+/* 스크롤바 스타일 */
+::-webkit-scrollbar {
+    width: 10px;
 }
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #b45309;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #78350f;
+}
+
+/* 접근성 개선 */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}
+
+/* 포커스 스타일 */
+a:focus,
+button:focus {
+    outline: 2px solid #b45309;
+    outline-offset: 2px;
+}
+
+/* 반응형 타이포그래피 */
+@media (max-width: 640px) {
+    html {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    html {
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 1025px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+/* 성능 최적화 */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+video {
+    max-width: 100%;
+    height: auto;
+}
+
+/* 부드러운 전환 */
+* {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+

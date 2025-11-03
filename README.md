@@ -1,92 +1,259 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 천태사 (CheontaeSa) - 미니멀 & 모던 사찰 웹사이트
 
-## Getting Started
+> 마음의 평화를 찾는 곳
 
-First, run the development server:
+전통과 현대가 조화를 이루는 천태사의 공식 웹사이트입니다. 미니멀하고 모던한 디자인으로 사찰의 품격을 표현하며, 방문객들에게 편리한 정보 제공과 온라인 소통의 장을 마련합니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🎨 디자인 컨셉
 
+- **스타일**: 미니멀리즘 & 모던
+- **색상 팔레트**: 
+  - 회색 (Gray) - 차분하고 안정적인 느낌
+  - 검정 (Black) - 고급스럽고 깊이 있는 분위기
+  - 갈색/앰버 (Brown/Amber) - 따뜻하고 전통적인 불교 색상
+- **타이포그래피**: Noto Sans KR, Noto Serif KR (한글 최적화)
 
+## ✨ 주요 기능
 
+### 📍 완성된 기능
 
+1. **홈 섹션**
+   - 인상적인 풀스크린 히어로 이미지
+   - 그라데이션 오버레이 효과
+   - CTA 버튼 (더 알아보기, 오시는 길)
 
-     프로젝트의 디자인 컬러
+2. **소개 섹션**
+   - 주지 스님의 인사말
+   - 사찰 정보 카드 (주소, 전화번호, 운영시간)
+   - 2단 그리드 레이아웃
 
-    colors: {
-      theme: '#4A743C',
-      yellowgreen: '#F8F7EA',
-      yellow: '#FFB930',
-      red: '#F00001',
+3. **서비스 안내**
+   - 기도 (산신기도, 칠성기도, 백일기도, 특별기도)
+   - 제사/천도재 (49재, 기제사, 합동천도재, 위령제)
+   - 시주 (일반시주, 불사시주, 공양시주, 특별시주)
+   - 호버 효과가 있는 3단 카드 레이아웃
 
-      black: '#333333',
-      gray: '#666666',
-      gray01: '#999999',
-      gray02: '#d9d9d9',
-      gray03: '#f3f3f3',
-      gray04: '#f6f6f6',
+4. **갤러리**
+   - 6개의 갤러리 아이템
+   - 그라데이션 플레이스홀더
+   - 호버 시 정보 표시
+   - 그리드 레이아웃 (1/2/3 컬럼 반응형)
 
-      white: '#ffffff',
+5. **소식 & 공지사항 (블로그)**
+   - 최신 소식 6개 표시
+   - 카테고리별 분류 (공지사항, 행사, 법문, 모집, 갤러리, 안내)
+   - 날짜, 카테고리, 제목, 요약, 더보기 링크
+   - 순차적 페이드인 애니메이션
 
+6. **오시는 길 (연락처)**
+   - 지도 영역 (Google Maps/Kakao Map 연동 가능)
+   - 상세 연락처 정보 카드
+   - 전화하기, 카카오톡 버튼
+   - 대중교통 안내
 
-    fontSize: {
-      title: '1.88em',
-      fs28: '1.80em',
-      fs26: '1.63em',
-      fs24: '1.50em',
-      fs20: '1.25em',
-      fs18: '1.13em',
-      fs16: '1.00em',
-      fs14: '0.88em',
-      fs12: '0.75em',
-      fs10: '0.63em',
+7. **네비게이션**
+   - 고정 헤더 (스크롤 시 배경 추가)
+   - 반응형 모바일 메뉴
+   - 부드러운 스크롤 애니메이션
+   - 현재 섹션 자동 감지 및 활성화
+
+8. **인터랙티브 요소**
+   - 스크롤 시 요소 나타나기 효과
+   - 스크롤 투 탑 버튼
+   - 호버 애니메이션
+   - 키보드 네비게이션 지원
+
+9. **푸터**
+   - 소셜 미디어 링크
+   - 빠른 링크
+   - 연락처 정보
+   - 저작권 표시
+
+## 🗂️ 프로젝트 구조
 
 ```
+cheontaesa/
+├── index.html          # 메인 HTML 파일
+├── css/
+│   └── style.css       # 커스텀 CSS 스타일
+├── js/
+│   └── main.js         # JavaScript 인터랙션
+└── README.md           # 프로젝트 문서
+```
 
-PR & commit
-feat: 새로운 기능 추가
+## 🌐 페이지 URI 구조
 
-fix: 버그 수정
+| URI | 설명 |
+|-----|------|
+| `/` | 홈페이지 (모든 섹션 포함) |
+| `/#home` | 히어로 섹션 |
+| `/#about` | 소개 섹션 |
+| `/#services` | 서비스 안내 |
+| `/#gallery` | 갤러리 |
+| `/#blog` | 소식 & 공지사항 |
+| `/#contact` | 오시는 길 |
 
-docs: 문서 수정
+## 🛠️ 기술 스택
 
-style: 코드 포맷 변경, 세미콜론 누락, 코드 변경 없음
+### Frontend
+- **HTML5**: 시맨틱 마크업
+- **CSS3**: 커스텀 스타일링, 애니메이션
+- **Tailwind CSS**: 유틸리티 기반 CSS 프레임워크 (CDN)
+- **JavaScript (ES6+)**: 인터랙션 및 동적 기능
+- **Font Awesome**: 아이콘 라이브러리
+- **Google Fonts**: 한글 웹폰트 (Noto Sans/Serif KR)
 
-refactor: 프로덕션 코드 리팩터링
+### 라이브러리 & CDN
+- Tailwind CSS v3.x
+- Font Awesome v6.4.0
+- Google Fonts API
 
-test: 테스트 추가, 테스트 코드 리팩터링, 프로덕션 코드 변경 없음
+## 📱 반응형 디자인
 
-chore: 패키지 매니저 설정할 경우, 코드 수정 없이 설정을 변경
+- **데스크톱**: 1920px 이상 최적화
+- **태블릿**: 768px ~ 1024px
+- **모바일**: 375px ~ 767px
 
-revert: 작업 되돌리기
+모든 섹션이 다양한 디바이스에서 완벽하게 표시되도록 최적화되었습니다.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## ♿ 접근성
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+- 시맨틱 HTML 태그 사용
+- ARIA 레이블 (필요시 추가 가능)
+- 키보드 네비게이션 지원
+- 포커스 스타일 명확화
+- 충분한 색상 대비
+- alt 텍스트 (실제 이미지 사용 시 필수)
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+## 🚀 시작하기
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+### 1. 프로젝트 파일 준비
+모든 파일을 다운로드하고 동일한 폴더 구조를 유지하세요.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+### 2. 브라우저에서 열기
+`index.html` 파일을 웹 브라우저에서 바로 열면 됩니다.
 
-## Learn More
+### 3. 배포
+**Publish 탭**을 통해 웹사이트를 온라인으로 배포할 수 있습니다.
 
-To learn more about Next.js, take a look at the following resources:
+## 🔧 커스터마이징 가이드
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 색상 변경
+`css/style.css` 파일의 `:root` 변수를 수정하세요:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```css
+:root {
+    --primary-color: #b45309;  /* 메인 색상 */
+    --secondary-color: #78350f; /* 보조 색상 */
+    --gray-dark: #1f2937;      /* 다크 그레이 */
+}
+```
 
-## Deploy on Vercel
+### 콘텐츠 수정
+`index.html` 파일에서 텍스트, 이미지, 링크를 직접 수정하세요.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 갤러리 이미지 추가
+갤러리 섹션의 플레이스홀더를 실제 이미지로 교체:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```html
+<div class="relative group overflow-hidden rounded-2xl shadow-lg h-80">
+    <img src="images/gallery-1.jpg" alt="대웅전" class="w-full h-full object-cover">
+    <!-- ... -->
+</div>
+```
+
+### 지도 연동
+오시는 길 섹션에 Google Maps 또는 Kakao Map API를 연동:
+
+```html
+<div id="map" style="width:100%;height:400px;"></div>
+<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_API_KEY"></script>
+```
+
+## 📋 향후 개발 계획
+
+### 추천 기능 추가
+
+1. **블로그 상세 페이지**
+   - 개별 게시물 상세 보기
+   - 댓글 시스템
+   - 공유 기능
+
+2. **온라인 예약 시스템**
+   - 기도 예약
+   - 법회 참석 신청
+   - 템플스테이 예약
+
+3. **갤러리 확장**
+   - 라이트박스 효과
+   - 카테고리별 필터링
+   - 더 많은 이미지 추가
+
+4. **실시간 법회 중계**
+   - 라이브 스트리밍
+   - 아카이브 영상
+
+5. **다국어 지원**
+   - 영어, 중국어, 일본어
+   - 언어 선택 기능
+
+6. **소셜 미디어 연동**
+   - Instagram 피드
+   - YouTube 동영상
+   - Facebook 업데이트
+
+7. **검색 기능**
+   - 사이트 내 검색
+   - 블로그 게시물 검색
+
+8. **회원 시스템**
+   - 불자 등록
+   - 로그인/로그아웃
+   - 마이페이지
+
+## 🎯 SEO 최적화
+
+- 메타 태그 설정 완료
+- 시맨틱 HTML 구조
+- 빠른 로딩 속도
+- 반응형 디자인
+- Open Graph 태그 (추가 가능)
+- Sitemap 생성 (추천)
+
+## 📞 연락처 정보
+
+- **주소**: 서울특별시 강남구 천태사로 241-1
+- **전화**: 02-000-0000 / 010-0000-0000
+- **운영시간**: 09:00 ~ 17:00 (점심시간 11:30 ~ 12:30)
+
+## 📄 라이선스
+
+Copyright © 2025 CHEONTAESA. All Rights Reserved.
+
+---
+
+## 🔥 개발 팁
+
+### 성능 최적화
+- 이미지 최적화 (WebP 형식 권장)
+- Lazy Loading 구현
+- CSS/JS 압축
+- CDN 활용
+
+### 보안
+- HTTPS 사용
+- 외부 링크에 rel="noopener noreferrer" 추가
+- XSS 방지
+
+### 유지보수
+- 정기적인 콘텐츠 업데이트
+- 브라우저 호환성 테스트
+- 모바일 기기 테스트
+- 접근성 감사
+
+---
+
+**제작**: AI Web Developer  
+**디자인**: 미니멀 & 모던 컨셉  
+**버전**: 1.0.0  
+**최종 업데이트**: 2025.01
