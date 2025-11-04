@@ -36,7 +36,7 @@ export function Contact() {
                   </div>
                   <div>
                     <h4 className="font-bold text-gray-900 mb-1">주소</h4>
-                    <p className="text-gray-600">경기 광주시 초월읍 도평길 241-2</p>
+                    <p className="text-gray-600">경기 광주시 초월읍 도평길 241-1</p>
                   </div>
                 </div>
 

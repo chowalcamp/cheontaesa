@@ -1,7 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  swcMinify: true, // SWC 기반 최소화 (Terser보다 7배 빠름)
+
+  // Turbopack 설정 (Next.js 16 기본값)
+  turbopack: {},
 
   // 컴파일러 최적화
   compiler: {

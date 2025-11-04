@@ -50,7 +50,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    // google: 'google-site-verification-code', // Google Search Console 인증 코드 추가
+    google: 'Aph59lbPlSOR4dDW1yLNJmTNd164xvZwKswaJUtcMzA', // Google Search Console 인증 코드
     // naver: 'naver-site-verification-code', // 네이버 웹마스터 인증 코드 추가
   },
 };
