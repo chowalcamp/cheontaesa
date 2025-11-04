@@ -63,6 +63,7 @@ export default function RootLayout({
   return (
     <html lang="ko" className="scroll-smooth">
       <head>
+      <meta name="google-site-verification" content="Aph59lbPlSOR4dDW1yLNJmTNd164xvZwKswaJUtcMzA" />
         {/* DNS Prefetch & Preconnect for performance */}
         <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
         <link
