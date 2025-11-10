@@ -32,7 +32,7 @@ export function About() {
                   <i className="fas fa-map-marker-alt text-amber-700 mt-1 mr-4"></i>
                   <div>
                     <p className="font-semibold text-gray-900">주소</p>
-                    <p className="text-gray-600">서울특별시 강남구 천태사로 241-1</p>
+                    <p className="text-gray-600">경기 광주시 초월읍 도평길 241-2</p>
                   </div>
                 </div>
                 <div className="flex items-start">

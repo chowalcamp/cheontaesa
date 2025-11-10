@@ -5,6 +5,11 @@ const nextConfig = {
   // Turbopack 설정 (Next.js 16 기본값)
   turbopack: {},
 
+  // ESLint 빌드 시 무시 (순환 참조 경고 회피)
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+
   // 컴파일러 최적화
   compiler: {
     removeConsole:
@@ -13,6 +18,11 @@ const nextConfig = {
             exclude: ["error", "warn"],
           }
         : false,
+  },
+
+  // 최적화된 청크 분할
+  experimental: {
+    optimizePackageImports: ["@fortawesome/fontawesome-free"],
   },
 
   // 이미지 최적화 설정

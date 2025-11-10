@@ -1,6 +1,56 @@
 'use client';
 
+import { useEffect, useRef } from 'react';
+
+declare global {
+  interface Window {
+    kakao: any;
+  }
+}
+
 export function Contact() {
+  const mapRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const loadKakaoMap = () => {
+      if (!mapRef.current || !window.kakao || !window.kakao.maps) return;
+
+      const container = mapRef.current;
+      const options = {
+        center: new window.kakao.maps.LatLng(37.380669, 127.286669), // 천태사 좌표
+        level: 3,
+      };
+
+      const map = new window.kakao.maps.Map(container, options);
+
+      // 마커 표시
+      const markerPosition = new window.kakao.maps.LatLng(37.380669, 127.286669);
+      const marker = new window.kakao.maps.Marker({
+        position: markerPosition,
+      });
+      marker.setMap(map);
+
+      // 정보 창 표시
+      const infowindow = new window.kakao.maps.InfoWindow({
+        content: '<div style="padding:10px;font-size:14px;font-weight:bold;">천태사</div>',
+      });
+      infowindow.open(map, marker);
+    };
+
+    // Kakao Map API 스크립트 로드
+    if (typeof window !== 'undefined' && !window.kakao) {
+      const script = document.createElement('script');
+      script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_KAKAO_APP_KEY&autoload=false`;
+      script.async = true;
+      script.onload = () => {
+        window.kakao.maps.load(loadKakaoMap);
+      };
+      document.head.appendChild(script);
+    } else if (window.kakao && window.kakao.maps) {
+      loadKakaoMap();
+    }
+  }, []);
+
   return (
     <section id="contact" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -11,17 +61,15 @@ export function Contact() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12">
-          {/* Naver Map */}
+          {/* Kakao Map */}
           <div className="bg-gray-200 rounded-2xl overflow-hidden shadow-lg relative h-auto lg:h-full">
-            <iframe
-              src="https://map.naver.com/p/search/천태사?c=15.00,0,0,0,dh"
-              width="100%"
-              height="100%"
-              style={{ border: 0, minHeight: '400px' }}
-              allowFullScreen
-              loading="lazy"
+            <div
+              ref={mapRef}
               className="w-full h-full"
-            ></iframe>
+              style={{ minHeight: '400px' }}
+              role="application"
+              aria-label="천태사 위치 지도"
+            />
           </div>
 
           {/* Contact Info */}
@@ -82,20 +130,31 @@ export function Contact() {
               </div>
             </div>
 
-            <div className="flex gap-4">
+            <div className="flex flex-wrap gap-4">
               <a
                 href="tel:050713668392"
-                className="flex-1 bg-amber-700 hover:bg-amber-800 text-white py-4 rounded-xl text-center font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="flex-1 min-w-[140px] inline-flex items-center justify-center bg-amber-700 hover:bg-amber-800 text-white py-4 px-6 rounded-xl text-center font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg min-h-[48px]"
+                aria-label="천태사 전화 연결: 0507-1366-8392"
               >
                 <i className="fas fa-phone mr-2"></i>전화하기
               </a>
               <a
-                href="https://map.naver.com/p/search/경기%20광주시%20초월읍%20도평길%242-1"
+                href="https://map.naver.com/p/search/경기%20광주시%20초월읍%20도평길%20241-1"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 bg-green-600 hover:bg-green-700 text-white py-4 rounded-xl text-center font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                className="flex-1 min-w-[140px] inline-flex items-center justify-center bg-green-600 hover:bg-green-700 text-white py-4 px-6 rounded-xl text-center font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg min-h-[48px]"
+                aria-label="네이버 지도에서 천태사 위치 보기"
               >
                 <i className="fas fa-map-marked-alt mr-2"></i>네이버 지도
+              </a>
+              <a
+                href="https://map.kakao.com/link/map/천태사,37.380669,127.286669"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 min-w-[140px] inline-flex items-center justify-center bg-yellow-500 hover:bg-yellow-600 text-white py-4 px-6 rounded-xl text-center font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg min-h-[48px]"
+                aria-label="카카오맵에서 천태사 위치 보기"
+              >
+                <i className="fas fa-map-marked-alt mr-2"></i>카카오맵
               </a>
             </div>
           </div>

@@ -97,7 +97,8 @@ export function Blog() {
                 <p className="text-gray-600 mb-4 line-clamp-3">{post.content}</p>
                 <Link
                   href={`/news/${post.id}`}
-                  className="text-amber-700 hover:text-amber-800 font-semibold inline-flex items-center"
+                  className="text-amber-700 hover:text-amber-800 font-semibold inline-flex items-center py-2 px-4"
+                  aria-label={`${post.title} - 자세히 보기`}
                 >
                   자세히 보기 <i className="fas fa-arrow-right ml-2"></i>
                 </Link>
@@ -106,16 +107,18 @@ export function Blog() {
           ))}
         </div>
 
-        <div className="text-center mt-12 flex gap-4 justify-center">
+        <div className="text-center mt-12 flex flex-wrap gap-4 justify-center">
           <Link
             href="/news"
-            className="inline-block bg-amber-700 hover:bg-amber-800 text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+            className="inline-flex items-center justify-center bg-amber-700 hover:bg-amber-800 text-white px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg min-h-[48px]"
+            aria-label="천태사 소식 더보기"
           >
             소식 더보기
           </Link>
           <Link
             href="/notice"
-            className="inline-block bg-gray-700 hover:bg-gray-800 text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105"
+            className="inline-flex items-center justify-center bg-gray-700 hover:bg-gray-800 text-white px-8 py-4 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg min-h-[48px]"
+            aria-label="천태사 공지사항 보기"
           >
             공지사항
           </Link>

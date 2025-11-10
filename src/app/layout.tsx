@@ -71,11 +71,38 @@ export default function RootLayout({
           crossOrigin="anonymous"
         />
         
-        {/* FontAwesome - 직접 로드 (빠른 렌더링) */}
+        {/* FontAwesome - 비동기 로드 */}
+        <link
+          rel="preload"
+          href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+          as="style"
+        />
         <link
           rel="stylesheet"
           href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+          media="print"
+          id="fontawesome-css"
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              (function() {
+                var link = document.getElementById('fontawesome-css');
+                if (link) {
+                  window.addEventListener('load', function() {
+                    link.media = 'all';
+                  });
+                }
+              })();
+            `,
+          }}
+        />
+        <noscript>
+          <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css"
+          />
+        </noscript>
       </head>
       <body className={`${notoSansKr.variable} ${notoSerifKr.variable} font-sans text-gray-800`}>
         <Navbar />
