@@ -19,7 +19,7 @@ const allGalleryItems: GalleryItem[] = [
     description: '정성을 다하는 예불',
     icon: 'fa-praying-hands',
     gradient: 'from-amber-200 to-amber-300',
-    imageUrl: '/images/tmep2.jpeg',
+    imageUrl: '/images/temp2.jpeg',
   },
   {
     id: '3',
@@ -191,13 +191,22 @@ export function Gallery() {
   }
 
   return (
-    <section id="gallery" className="py-20 bg-white">
+    <section 
+      id="gallery" 
+      className="py-20 bg-white"
+      aria-labelledby="gallery-title"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif">갤러리</h2>
-          <div className="w-24 h-1 bg-amber-700 mx-auto mb-4"></div>
+        <header className="text-center mb-16">
+          <h2 
+            id="gallery-title"
+            className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif"
+          >
+            갤러리
+          </h2>
+          <div className="w-24 h-1 bg-amber-700 mx-auto mb-4" aria-hidden="true"></div>
           <p className="text-gray-600 text-lg">천태사의 아름다운 순간들</p>
-        </div>
+        </header>
 
         {/* Masonry Grid Layout */}
         <div className="columns-1 md:columns-2 lg:columns-3 gap-6">
@@ -211,7 +220,7 @@ export function Gallery() {
                 <div className={`relative ${heightClasses[index % heightClasses.length]} w-full`}>
                   <Image
                     src={item.imageUrl}
-                    alt={item.title}
+                    alt={`${item.title} - ${item.description}`}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     loading={index < 6 ? "eager" : "lazy"}
@@ -240,19 +249,21 @@ export function Gallery() {
               {hasMore && (
                 <button
                   onClick={handleLoadMore}
-                  className="inline-flex items-center gap-2 bg-amber-700 hover:bg-amber-800 text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  className="inline-flex items-center gap-2 bg-amber-700 hover:bg-amber-800 text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2"
+                  aria-label="갤러리 이미지 더 보기"
                 >
                   <span>더보기</span>
-                  <i className="fas fa-chevron-down"></i>
+                  <i className="fas fa-chevron-down" aria-hidden="true"></i>
                 </button>
               )}
               {canCollapse && (
                 <button
                   onClick={handleCollapse}
-                  className="inline-flex items-center gap-2 bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg"
+                  className="inline-flex items-center gap-2 bg-gray-600 hover:bg-gray-700 text-white px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-offset-2"
+                  aria-label="갤러리 접기"
                 >
                   <span>접기</span>
-                  <i className="fas fa-chevron-up"></i>
+                  <i className="fas fa-chevron-up" aria-hidden="true"></i>
                 </button>
               )}
             </div>

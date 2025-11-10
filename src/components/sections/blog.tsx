@@ -65,13 +65,22 @@ const gradients = [
 
 export function Blog() {
   return (
-    <section id="blog" className="py-20 bg-gray-50">
+    <section 
+      id="blog" 
+      className="py-20 bg-gray-50"
+      aria-labelledby="blog-title"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif">소식 & 공지사항</h2>
-          <div className="w-24 h-1 bg-amber-700 mx-auto mb-4"></div>
+        <header className="text-center mb-16">
+          <h2 
+            id="blog-title"
+            className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif"
+          >
+            소식 & 공지사항
+          </h2>
+          <div className="w-24 h-1 bg-amber-700 mx-auto mb-4" aria-hidden="true"></div>
           <p className="text-gray-600 text-lg">천태사의 최신 소식을 확인하세요</p>
-        </div>
+        </header>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {blogPosts.map((post, index) => (
@@ -81,14 +90,15 @@ export function Blog() {
             >
               <div
                 className={`h-48 bg-gradient-to-br ${gradients[index]} flex items-center justify-center`}
+                aria-hidden="true"
               >
-                <i className={`fas ${post.icon} text-white text-5xl`}></i>
+                <i className={`fas ${post.icon} text-white text-5xl`} aria-hidden="true"></i>
               </div>
               <div className="p-6">
                 <div className="flex items-center text-sm text-gray-500 mb-3">
-                  <i className="fas fa-calendar mr-2"></i>
-                  <span>{post.date}</span>
-                  <span className="mx-2">|</span>
+                  <i className="fas fa-calendar mr-2" aria-hidden="true"></i>
+                  <time dateTime={post.date.replace(/\./g, '-')}>{post.date}</time>
+                  <span className="mx-2" aria-hidden="true">|</span>
                   <span className="text-amber-700 font-semibold">{post.category}</span>
                 </div>
                 <h3 className="text-xl font-bold text-gray-900 mb-3 hover:text-amber-700 transition-colors cursor-pointer">
@@ -97,10 +107,10 @@ export function Blog() {
                 <p className="text-gray-600 mb-4 line-clamp-3">{post.content}</p>
                 <Link
                   href={`/news/${post.id}`}
-                  className="text-amber-700 hover:text-amber-800 font-semibold inline-flex items-center py-2 px-4"
-                  aria-label={`${post.title} - 자세히 보기`}
+                  className="text-amber-700 hover:text-amber-800 font-semibold inline-flex items-center py-2 px-4 focus:outline-none focus:ring-2 focus:ring-amber-500 focus:ring-offset-2 rounded"
+                  aria-label={`${post.title} 자세히 보기`}
                 >
-                  자세히 보기 <i className="fas fa-arrow-right ml-2"></i>
+                  자세히 보기 <i className="fas fa-arrow-right ml-2" aria-hidden="true"></i>
                 </Link>
               </div>
             </article>

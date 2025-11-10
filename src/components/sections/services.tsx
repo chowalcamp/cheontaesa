@@ -38,26 +38,36 @@ const services: Service[] = [
 
 export function Services() {
   return (
-    <section id="services" className="py-20 bg-gray-50">
+    <section 
+      id="services" 
+      className="py-20 bg-gray-50"
+      aria-labelledby="services-title"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif">운영 안내</h2>
-          <div className="w-24 h-1 bg-amber-700 mx-auto mb-4"></div>
+        <header className="text-center mb-16">
+          <h2 
+            id="services-title"
+            className="text-4xl md:text-5xl font-bold text-gray-900 mb-4 font-serif"
+          >
+            운영 안내
+          </h2>
+          <div className="w-24 h-1 bg-amber-700 mx-auto mb-4" aria-hidden="true"></div>
           <p className="text-gray-600 text-lg">천태사에서 운영하는 다양한 행사입니다</p>
-        </div>
+        </header>
 
         <div className="grid md:grid-cols-3 gap-8">
           {services.map((service) => (
-            <div
+            <article
               key={service.id}
               className="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group"
+              aria-labelledby={`service-${service.id}-title`}
             >
               {/* 이미지 */}
               <div className="relative h-48 overflow-hidden">
                 {service.imageUrl ? (
                   <Image
                     src={service.imageUrl}
-                    alt={service.title}
+                    alt={`${service.title} - 천태사 ${service.title} 행사 이미지`}
                     fill
                     sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     loading="lazy"
@@ -66,25 +76,32 @@ export function Services() {
                   />
                 ) : (
                   <div className={`h-full bg-gradient-to-br ${service.gradient} flex items-center justify-center`}>
-                    <i className={`fas ${service.icon} text-white text-6xl`}></i>
+                    <i className={`fas ${service.icon} text-white text-6xl`} aria-hidden="true"></i>
                   </div>
                 )}
-                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300"></div>
+                <div className="absolute inset-0 bg-black/30 group-hover:bg-black/40 transition-colors duration-300" aria-hidden="true"></div>
               </div>
               
               <div className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">{service.title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
-                <ul className="space-y-2 text-gray-600">
+                <h3 
+                  id={`service-${service.id}-title`}
+                  className="text-2xl font-bold text-gray-900 mb-4"
+                >
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  {service.description}
+                </p>
+                <ul className="space-y-2 text-gray-600" aria-label={`${service.title} 세부 항목`}>
                   {service.items.map((item, index) => (
                     <li key={index} className="flex items-center">
-                      <i className="fas fa-check text-amber-700 mr-2"></i>
+                      <i className="fas fa-check text-amber-700 mr-2" aria-hidden="true"></i>
                       <span>{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-            </div>
+            </article>
           ))}
         </div>
       </div>

@@ -2,14 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Critical CSS - 인라인 처리 권장 */
 @layer base {
   :root {
-    --primary-color: #b45309; /* Amber-700 */
-    --secondary-color: #78350f; /* Amber-900 */
-    --gray-dark: #1f2937; /* Gray-800 */
-    --gray-medium: #6b7280; /* Gray-500 */
-    --gray-light: #f3f4f6; /* Gray-100 */
+    --primary-color: #b45309;
+    --secondary-color: #78350f;
+    --gray-dark: #1f2937;
+    --gray-medium: #6b7280;
+    --gray-light: #f3f4f6;
   }
 
   html {
@@ -17,34 +16,37 @@
   }
 
   body {
-    font-family: var(--font-noto-sans), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-family: var(--font-noto-sans-kr), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
     line-height: 1.6;
     color: #1f2937;
     overflow-x: hidden;
   }
 
-  /* 한글 Serif 폰트 */
-  .font-serif {
-    font-family: var(--font-noto-serif), serif;
-  }
-
-  /* 성능 최적화: 하드웨어 가속 */
-  * {
+  /* ✅ LCP 최적화: h1 폰트 즉시 표시 */
+  h1 {
+    font-family: var(--font-noto-sans-kr), system-ui, -apple-system, sans-serif;
+    font-weight: 700;
+    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
 
-  img, video {
-    max-width: 100%;
-    height: auto;
+  .font-serif {
+    font-family: var(--font-noto-serif-kr), serif;
+  }
+
+  * {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 }
 
 @layer components {
-  /* 터치 영역 접근성 개선 (WCAG 2.5.5) */
-  a, button {
-    min-width: 48px;
-    min-height: 48px;
+  /* 터치 영역 접근성 개선 (WCAG 2.5.5 - 44x44px 최소) */
+  a,
+  button {
+    min-width: 44px;
+    min-height: 44px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -56,8 +58,6 @@
     position: relative;
     padding: 12px 16px;
     font-weight: 500;
-    min-width: 48px;
-    min-height: 48px;
   }
 
   .nav-link::after {
@@ -67,7 +67,7 @@
     left: 0;
     width: 0;
     height: 2px;
-    background-color: #b45309;
+    background-color: var(--primary-color);
     transition: width 0.3s ease;
     will-change: width;
   }
@@ -79,12 +79,12 @@
 
   /* 버튼 스타일 */
   .btn-primary {
-    background: linear-gradient(135deg, #b45309 0%, #78350f 100%);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
     transition: all 0.3s ease;
     will-change: transform, box-shadow;
     padding: 12px 24px;
     min-width: 120px;
-    min-height: 48px;
+    min-height: 44px;
   }
 
   .btn-primary:hover {
@@ -111,7 +111,7 @@
     overflow: hidden;
   }
 
-  /* 접근성 개선 */
+  /* 접근성 - 스크린리더 전용 */
   .sr-only {
     position: absolute;
     width: 1px;
@@ -124,35 +124,35 @@
     border-width: 0;
   }
 
+  .sr-only:focus,
+  .sr-only:not-sr-only {
+    position: static;
+    width: auto;
+    height: auto;
+    padding: inherit;
+    margin: inherit;
+    overflow: visible;
+    clip: auto;
+    white-space: normal;
+  }
+
   /* 포커스 스타일 강화 */
   a:focus-visible,
   button:focus-visible {
-    outline: 3px solid #b45309;
+    outline: 3px solid var(--primary-color);
     outline-offset: 3px;
     border-radius: 4px;
   }
 
   /* 소셜 아이콘 터치 영역 */
   .social-icon {
-    min-width: 48px;
-    min-height: 48px;
+    min-width: 44px;
+    min-height: 44px;
     padding: 12px;
   }
 }
 
 @layer utilities {
-  /* 애니메이션 - 사용 시에만 로드 */
-  @keyframes fade-in {
-    from {
-      opacity: 0;
-      transform: translateY(20px);
-    }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
   /* 스크롤 효과 */
   .scroll-reveal {
     opacity: 0;
@@ -166,8 +166,8 @@
     transform: translateY(0);
   }
 
-  /* 스크롤바 스타일 - 비필수 */
-  @media (hover: hover) {
+  /* 스크롤바 스타일 (데스크톱 전용) */
+  @media (hover: hover) and (pointer: fine) {
     ::-webkit-scrollbar {
       width: 10px;
     }
@@ -177,12 +177,12 @@
     }
 
     ::-webkit-scrollbar-thumb {
-      background: #b45309;
+      background: var(--primary-color);
       border-radius: 5px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: #78350f;
+      background: var(--secondary-color);
     }
   }
 }
@@ -203,6 +203,32 @@
 @media (min-width: 1025px) {
   html {
     font-size: 16px;
+  }
+}
+
+/* 프린트 스타일 */
+@media print {
+  * {
+    box-shadow: none !important;
+    text-shadow: none !important;
+  }
+
+  a,
+  a:visited {
+    text-decoration: underline;
+  }
+
+  img {
+    max-width: 100% !important;
+  }
+
+  @page {
+    margin: 2cm;
+  }
+
+  h2,
+  h3 {
+    page-break-after: avoid;
   }
 }
 
