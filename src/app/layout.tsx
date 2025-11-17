@@ -107,6 +107,12 @@ export default function RootLayout({
   return (
     <html lang="ko" className="scroll-smooth">
       <head>
+        {/* Permissions Policy - 센서 기능 차단하여 경고 제거 */}
+        <meta
+          httpEquiv="Permissions-Policy"
+          content="accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=(), usb=()"
+        />
+        
         {/* DNS Prefetch & Preconnect for performance */}
         <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
         <link
