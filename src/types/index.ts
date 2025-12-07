@@ -1,28 +1,31 @@
-// 블로그/소식 타입
-export interface BlogPost {
-  id: string;
+// 소식 타입 (백엔드 API 응답 구조 - ID는 UUID)
+export interface NewsPost {
+  id: string; // UUID
   title: string;
-  content: string;
-  category: string;
-  date: string;
-  icon: string;
+  content: string | null;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string | null;
 }
 
+// BlogPost는 NewsPost의 별칭 (하위 호환성)
+export type BlogPost = NewsPost;
+
 // 소식 상세 타입
-export interface NewsDetail extends BlogPost {
+export interface NewsDetail extends NewsPost {
   author?: string;
   views?: number;
   imageUrl?: string;
 }
 
-// 공지사항 타입
+// 공지사항 타입 (백엔드 API 응답 구조 - ID는 UUID)
 export interface Notice {
-  id: string;
+  id: string; // UUID
   title: string;
-  content: string;
-  date: string;
-  category?: string;
-  isImportant?: boolean;
+  content: string | null;
+  createdAt: string;
+  updatedAt: string;
+  deletedAt: string | null;
 }
 
 // 공지사항 상세 타입

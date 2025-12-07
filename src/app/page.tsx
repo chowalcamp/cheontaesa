@@ -1,6 +1,6 @@
 'use client';
 
-import { Hero, About, Services, Gallery, Blog, Contact } from '@/components/sections';
+import { Hero, About, Services, Gallery, News, Contact } from '@/components/sections';
 
 export default function HomePage() {
   return (
@@ -9,7 +9,7 @@ export default function HomePage() {
       <About />
       <Services />
       <Gallery />
-      <Blog />
+      <News />
       <Contact />
     </main>
   );

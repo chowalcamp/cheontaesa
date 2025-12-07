@@ -1,34 +1,27 @@
-import { Suspense } from 'react';
+'use client';
+
+import { Suspense, use } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getNoticeDetail, getRecentNotices } from '@/lib/api';
+import { useNoticeDetail, useRecentNotices } from '@/hooks';
+import type { Notice } from '@/types';
 
-async function NoticeDetailContent({ id }: { id: string }) {
-  const notice = await getNoticeDetail(id);
+function NoticeDetailContent({ id }: { id: string }) {
+  const { data: notice, isLoading, isError } = useNoticeDetail(id);
 
-  if (!notice) {
+  if (isLoading) {
+    return <LoadingSkeleton />;
+  }
+
+  if (isError || !notice) {
     notFound();
   }
 
   return (
     <>
       {/* 메인 컨텐츠 */}
-      <article className="bg-white rounded-2xl overflow-hidden mb-12 shadow-lg">
-        <div className="p-8 md:p-12">
-          {/* 카테고리 & 중요 표시 */}
-          <div className="flex items-center gap-3 mb-6">
-            {notice.isImportant && (
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-red-100 text-red-600 shadow-sm">
-                <i className="fas fa-exclamation-circle mr-2"></i>
-                중요 공지
-              </span>
-            )}
-            {notice.category && (
-              <span className="inline-flex items-center px-4 py-2 rounded-full text-sm font-semibold bg-amber-100 text-amber-800">
-                {notice.category}
-              </span>
-            )}
-          </div>
+      <article className="bg-white mx-auto rounded-2xl overflow-hidden shadow-lg">
+        <div className="py-12 px-4 md:px-12">
 
           {/* 제목 */}
           <h1 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6 font-serif">
@@ -39,7 +32,7 @@ async function NoticeDetailContent({ id }: { id: string }) {
           <div className="flex flex-wrap items-center text-sm text-gray-500 mb-8 pb-8 border-b border-gray-200">
             <div className="flex items-center mr-6 mb-2">
               <i className="fas fa-calendar mr-2"></i>
-              <span>{notice.date}</span>
+              <span>{notice.createdAt}</span>
             </div>
             {notice.author && (
               <div className="flex items-center mr-6 mb-2">
@@ -57,9 +50,15 @@ async function NoticeDetailContent({ id }: { id: string }) {
 
           {/* 본문 */}
           <div className="prose prose-lg max-w-none mb-8">
+            {notice.content ? (
             <div className="text-gray-700 leading-relaxed whitespace-pre-wrap">
               {notice.content}
             </div>
+            ) : (
+              <div className="text-gray-500 italic py-8">
+                내용이 없습니다.
+              </div>
+            )}
           </div>
 
           {/* 첨부파일 */}
@@ -104,15 +103,18 @@ async function NoticeDetailContent({ id }: { id: string }) {
   );
 }
 
-async function RelatedNotices({ currentId }: { currentId: string }) {
-  const recentNotices = await getRecentNotices(4);
-  const filtered = recentNotices.filter((n) => n.id !== currentId).slice(0, 3);
+function RelatedNotices({ currentId }: { currentId: string }) {
+  const { data: recentNotices, isLoading, isError } = useRecentNotices(4);
+
+  if (isLoading || isError || !recentNotices) return null;
+
+  const filtered = recentNotices.filter((n: Notice) => n.id !== currentId).slice(0, 3);
 
   if (filtered.length === 0) return null;
 
   return (
     <div className="mt-12 bg-gray-50 rounded-2xl p-8 shadow-lg">
-      <h2 className="text-2xl font-bold text-gray-900 mb-6 font-serif">최근 공지사항</h2>
+      <h2 className="text-2xl font-bold text-gray-900 font-serif">최근 공지사항</h2>
       <div className="space-y-4">
         {filtered.map((notice) => (
           <Link
@@ -121,17 +123,7 @@ async function RelatedNotices({ currentId }: { currentId: string }) {
             className="block bg-white rounded-xl p-6 hover:shadow-xl transition-all duration-300 shadow-md"
           >
             <div className="flex items-start gap-3 mb-2">
-              {notice.isImportant && (
-                <span className="inline-flex items-center px-2 py-1 rounded text-xs font-semibold bg-red-100 text-red-600">
-                  중요
-                </span>
-              )}
-              {notice.category && (
-                <span className="inline-flex items-center px-2 py-1 rounded text-xs font-semibold bg-amber-100 text-amber-800">
-                  {notice.category}
-                </span>
-              )}
-              <span className="text-sm text-gray-500">{notice.date}</span>
+              <span className="text-sm text-gray-500">{notice.createdAt}</span>
             </div>
             <h3 className="text-lg font-bold text-gray-900 hover:text-amber-700 transition-colors">
               {notice.title}
@@ -160,12 +152,12 @@ function LoadingSkeleton() {
   );
 }
 
-export default async function NoticeDetailPage({
+export default function NoticeDetailPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const { id } = await params;
+  const { id } = use(params);
 
   return (
     <div className="min-h-screen bg-gray-50">

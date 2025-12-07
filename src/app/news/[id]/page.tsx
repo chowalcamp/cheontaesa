@@ -1,12 +1,21 @@
-import { Suspense } from 'react';
+'use client';
+
+import { Suspense, use } from 'react';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
-import { getNewsDetail, getRecentNews } from '@/lib/api';
+import { useNewsDetail, useRecentNews } from '@/hooks';
+import type { BlogPost } from '@/types';
 
-async function NewsDetailContent({ id }: { id: string }) {
-  const news = await getNewsDetail(id);
+function NewsDetailContent({ id }: { id: string }) {
+  const { data: news, isLoading, isError } = useNewsDetail(id);
 
-  if (!news) {
+  console.log('NewsDetailContent - news:', news); // 디버깅용
+
+  if (isLoading) {
+    return <LoadingSkeleton />;
+  }
+
+  if (isError || !news) {
     notFound();
   }
 
@@ -15,22 +24,16 @@ async function NewsDetailContent({ id }: { id: string }) {
       {/* 메인 컨텐츠 */}
       <article className="bg-white rounded-2xl overflow-hidden mb-12 shadow-lg">
         {/* 헤더 이미지 */}
-        {news.imageUrl && (
-          <div className="h-96 bg-gradient-to-br from-gray-800 to-amber-800 flex items-center justify-center relative overflow-hidden group">
-            <i className={`fas ${news.icon} text-white text-8xl transition-transform duration-500 group-hover:scale-110`}></i>
-            <div className="absolute inset-0 bg-black/20"></div>
-          </div>
-        )}
+        <div className="h-96 bg-gradient-to-br from-gray-800 to-amber-800 flex items-center justify-center relative overflow-hidden group">
+          <i className="fas fa-newspaper text-white text-8xl transition-transform duration-500 group-hover:scale-110"></i>
+          <div className="absolute inset-0 bg-black/20"></div>
+        </div>
 
         <div className="p-8 md:p-12">
-          {/* 카테고리 & 날짜 */}
+          {/* 날짜 */}
           <div className="flex items-center text-sm text-gray-500 mb-6">
-            <span className="bg-amber-100 text-amber-800 px-3 py-1 rounded-full font-semibold">
-              {news.category}
-            </span>
-            <span className="mx-3">|</span>
             <i className="fas fa-calendar mr-2"></i>
-            <span>{news.date}</span>
+            <span>{news.createdAt}</span>
             {news.author && (
               <>
                 <span className="mx-3">|</span>
@@ -54,9 +57,15 @@ async function NewsDetailContent({ id }: { id: string }) {
 
           {/* 본문 */}
           <div className="prose prose-lg max-w-none">
-            <div className="text-gray-700 leading-relaxed whitespace-pre-wrap">
-              {news.content}
-            </div>
+            {news.content ? (
+              <div className="text-gray-700 leading-relaxed whitespace-pre-wrap">
+                {news.content}
+              </div>
+            ) : (
+              <div className="text-gray-500 italic py-8">
+                내용이 없습니다.
+              </div>
+            )}
           </div>
         </div>
       </article>
@@ -82,9 +91,12 @@ async function NewsDetailContent({ id }: { id: string }) {
   );
 }
 
-async function RelatedNews({ currentId }: { currentId: string }) {
-  const recentNews = await getRecentNews(4);
-  const filtered = recentNews.filter((n) => n.id !== currentId).slice(0, 3);
+function RelatedNews({ currentId }: { currentId: string }) {
+  const { data: recentNews, isLoading, isError } = useRecentNews(4);
+
+  if (isLoading || isError || !recentNews) return null;
+
+  const filtered = recentNews.filter((n: BlogPost) => n.id !== currentId).slice(0, 3);
 
   if (filtered.length === 0) return null;
 
@@ -99,14 +111,14 @@ async function RelatedNews({ currentId }: { currentId: string }) {
             className="bg-white rounded-xl p-6 hover:shadow-xl transition-all duration-300 shadow-md"
           >
             <div className="flex items-center text-sm text-gray-500 mb-2">
-              <span className="text-amber-700 font-semibold">{news.category}</span>
-              <span className="mx-2">|</span>
-              <span>{news.date}</span>
+              <span>{news.createdAt}</span>
             </div>
             <h3 className="text-lg font-bold text-gray-900 mb-2 hover:text-amber-700 transition-colors">
               {news.title}
             </h3>
-            <p className="text-gray-600 text-sm line-clamp-2">{news.content}</p>
+            {news.content && (
+              <p className="text-gray-600 text-sm line-clamp-2">{news.content}</p>
+            )}
           </Link>
         ))}
       </div>
@@ -131,12 +143,12 @@ function LoadingSkeleton() {
   );
 }
 
-export default async function NewsDetailPage({
+export default function NewsDetailPage({
   params,
 }: {
   params: Promise<{ id: string }>;
 }) {
-  const { id } = await params;
+  const { id } = use(params);
 
   return (
     <div className="min-h-screen bg-gray-50">

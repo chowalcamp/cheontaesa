@@ -3,6 +3,7 @@ import { Noto_Sans_KR, Noto_Serif_KR } from 'next/font/google';
 import '@/styles/globals.css';
 import { Navbar, Footer, ScrollToTop } from '@/components';
 import Script from 'next/script';
+import { ReactQueryProvider } from '@/providers/react-query-provider';
 
 const notoSansKr = Noto_Sans_KR({
   subsets: ['latin'],
@@ -135,12 +136,14 @@ export default function RootLayout({
               url: 'https://www.cheontaesa.com',
               logo: 'https://www.cheontaesa.com/images/logo.png',
               image: 'https://www.cheontaesa.com/images/main.jpeg',
-              telephone: '+82-2-XXXX-XXXX',
+              telephone: '+82-507-1366-8392',
               address: {
                 '@type': 'PostalAddress',
                 addressCountry: 'KR',
-                addressLocality: '서울',
-                addressRegion: '서울특별시',
+                addressLocality: '경기도 광주시',
+                addressRegion: '초월읍',
+                postalCode: '12345',
+                streetAddress: '도평길 241-2',
               },
               sameAs: [],
             }),
@@ -148,15 +151,17 @@ export default function RootLayout({
         />
       </head>
       <body className={`${notoSansKr.variable} ${notoSerifKr.variable} font-sans text-gray-800`}>
-        <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-amber-700 focus:text-white">
-          본문으로 건너뛰기
-        </a>
-        <Navbar />
-        <main id="main-content">
-          {children}
-        </main>
-        <Footer />
-        <ScrollToTop />
+        <ReactQueryProvider>
+          <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-amber-700 focus:text-white">
+            본문으로 건너뛰기
+          </a>
+          <Navbar />
+          <main id="main-content">
+            {children}
+          </main>
+          <Footer />
+          <ScrollToTop />
+        </ReactQueryProvider>
         
         {/* FontAwesome - 비차단 로드 */}
         <Script
